@@ -1,0 +1,50 @@
+section {
+    padding: 100px 60px;
+    position: relative;
+}
+
+section+section {
+    border-top: 1px solid var(--border-subtle);
+}
+
+.section-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--copper);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+}
+
+.section-title {
+    font-family: var(--serif);
+    font-size: clamp(30px, 4vw, 52px);
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.section-title em {
+    font-style: italic;
+    color: var(--copper);
+}
+
+.section-sub {
+    font-size: 14px;
+    color: var(--text-secondary);
+    font-weight: 300;
+    line-height: 1.8;
+    max-width: 540px;
+    margin-bottom: 56px;
+}
+
+@media (max-width: 1024px) {
+    section {
+        padding: 80px 40px;
+    }
+}
+
+@media (max-width: 680px) {
+    section {
+        padding: 64px 24px;
+    }
+}

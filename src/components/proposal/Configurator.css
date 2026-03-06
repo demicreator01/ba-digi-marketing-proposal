@@ -1,0 +1,100 @@
+.config-preview {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    padding: 52px 48px;
+    max-width: 580px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.config-preview::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, var(--copper), var(--emerald));
+}
+
+.config-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 44px;
+}
+
+.config-bar .bar-track {
+    flex: 1;
+    height: 2px;
+    background: rgba(232, 226, 214, 0.06);
+    margin: 0 16px;
+    position: relative;
+}
+
+.config-bar .bar-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 40%;
+    background: var(--copper);
+}
+
+.config-bar .step-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--text-tertiary);
+    letter-spacing: 0.1em;
+}
+
+.config-question {
+    font-family: var(--serif);
+    font-size: 26px;
+    margin-bottom: 32px;
+    color: var(--cream-bright);
+}
+
+.config-options {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.config-option {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-subtle);
+    padding: 16px 22px;
+    transition: all 0.25s ease;
+    cursor: pointer;
+}
+
+.config-option:hover {
+    border-color: var(--border-accent);
+    background: var(--copper-surface);
+}
+
+.config-option.selected {
+    border-color: var(--copper);
+    background: var(--copper-surface);
+}
+
+.config-option .opt-title {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--cream);
+    margin-bottom: 2px;
+}
+
+.config-option .opt-sub {
+    font-size: 11px;
+    color: var(--text-tertiary);
+    font-weight: 300;
+}
+
+@media (max-width: 680px) {
+    .config-preview {
+        padding: 32px 24px;
+    }
+}

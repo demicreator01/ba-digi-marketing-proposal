@@ -1,0 +1,22 @@
+:root {
+  --bg: #0b0b0e;
+  --bg-card: #141417;
+  --bg-elevated: #1c1c20;
+  --bg-surface: #111114;
+  --cream: #e8e2d6;
+  --cream-bright: #f5f0e8;
+  --text-primary: #e8e2d6;
+  --text-secondary: rgba(232, 226, 214, 0.50);
+  --text-tertiary: rgba(232, 226, 214, 0.30);
+  --copper: #c09a6b;
+  --copper-light: #d4b088;
+  --copper-glow: rgba(192, 154, 107, 0.20);
+  --copper-surface: rgba(192, 154, 107, 0.06);
+  --emerald: #5a9e7c;
+  --border-subtle: rgba(232, 226, 214, 0.06);
+  --border-medium: rgba(232, 226, 214, 0.12);
+  --border-accent: rgba(192, 154, 107, 0.25);
+  --serif: 'DM Serif Display', Georgia, serif;
+  --sans: 'Sora', sans-serif;
+  --mono: 'DM Mono', monospace;
+}

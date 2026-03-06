@@ -1,0 +1,75 @@
+.packages-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+}
+
+.package {
+    background: var(--bg-card);
+    padding: 40px 28px;
+    transition: all 0.35s ease;
+    position: relative;
+}
+
+.package:hover {
+    background: var(--bg-elevated);
+}
+
+.package.featured {
+    border-left: 2px solid var(--copper);
+}
+
+.package.featured::after {
+    content: 'POPULAR';
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    font-family: var(--mono);
+    font-size: 8px;
+    letter-spacing: 0.2em;
+    color: var(--copper);
+    border: 1px solid rgba(192, 154, 107, 0.25);
+    padding: 3px 10px;
+}
+
+.package .tier-from {
+    font-family: var(--mono);
+    font-size: 9px;
+    color: var(--text-tertiary);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+}
+
+.package .tier-price {
+    font-family: var(--serif);
+    font-size: 32px;
+    color: var(--copper-light);
+    margin-bottom: 6px;
+}
+
+.package .tier-name {
+    font-family: var(--serif);
+    font-size: 18px;
+    color: var(--cream-bright);
+    margin-bottom: 14px;
+}
+
+.package .tier-desc {
+    font-size: 12px;
+    color: var(--text-secondary);
+    font-weight: 300;
+    line-height: 1.7;
+}
+
+@media (max-width: 1024px) {
+    .packages-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 680px) {
+    .packages-grid {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,91 @@
+.pillars {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+}
+
+.pillar {
+    background: var(--bg-card);
+    padding: 44px 36px;
+    transition: all 0.35s ease;
+}
+
+.pillar:hover {
+    background: var(--bg-elevated);
+}
+
+.pillar-line {
+    width: 28px;
+    height: 2px;
+    margin-bottom: 28px;
+}
+
+.pillar-line.build {
+    background: var(--copper);
+}
+
+.pillar-line.grow {
+    background: var(--emerald);
+}
+
+.pillar-line.launch {
+    background: var(--cream);
+}
+
+.pillar h3 {
+    font-family: var(--serif);
+    font-size: 24px;
+    margin-bottom: 8px;
+    color: var(--cream-bright);
+}
+
+.pillar .tagline {
+    font-size: 13px;
+    color: var(--text-secondary);
+    font-weight: 300;
+    margin-bottom: 28px;
+    font-style: italic;
+}
+
+.pillar .services {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.pillar .services li {
+    font-size: 13px;
+    color: var(--text-secondary);
+    font-weight: 300;
+    padding-left: 18px;
+    position: relative;
+}
+
+.pillar .services li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 7px;
+    width: 4px;
+    height: 4px;
+    border-radius: 1px;
+}
+
+.pillar:nth-child(1) .services li::before {
+    background: var(--copper);
+}
+
+.pillar:nth-child(2) .services li::before {
+    background: var(--emerald);
+}
+
+.pillar:nth-child(3) .services li::before {
+    background: var(--cream);
+}
+
+@media (max-width: 1024px) {
+    .pillars {
+        grid-template-columns: 1fr;
+    }
+}

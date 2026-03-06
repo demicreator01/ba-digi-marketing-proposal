@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BA DIGI MARKETING — Site Plan & Vision</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Sora:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg: #0b0b0e;
+      --bg-card: #141417;
+      --bg-elevated: #1c1c20;
+      --bg-surface: #111114;
+      --cream: #e8e2d6;
+      --cream-bright: #f5f0e8;
+      --text-primary: #e8e2d6;
+      --text-secondary: rgba(232, 226, 214, 0.50);
+      --text-tertiary: rgba(232, 226, 214, 0.30);
+      --copper: #c09a6b;
+      --copper-light: #d4b088;
+      --copper-glow: rgba(192, 154, 107, 0.20);
+      --copper-surface: rgba(192, 154, 107, 0.06);
+      --emerald: #5a9e7c;
+      --border-subtle: rgba(232, 226, 214, 0.06);
+      --border-medium: rgba(232, 226, 214, 0.12);
+      --border-accent: rgba(192, 154, 107, 0.25);
+      --serif: 'DM Serif Display', Georgia, serif;
+      --sans: 'Sora', sans-serif;
+      --mono: 'DM Mono', monospace;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--text-primary);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* GRAIN */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      opacity: 0.025;
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    /* PROGRESS */
+    .progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 1px;
+      background: var(--copper);
+      z-index: 1000;
+      transition: width 0.1s;
+      width: 0%;
+    }
+
+    /* SCROLLBAR */
+    ::-webkit-scrollbar {
+      width: 3px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--bg);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--copper);
+      border-radius: 2px;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 24px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(11, 11, 14, 0.92);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .nav-logo {
+      font-family: var(--serif);
+      font-size: 22px;
+      color: var(--copper);
+    }
+
+    .nav-label {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--text-tertiary);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 140px 60px 100px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -30%;
+      right: -15%;
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(circle, rgba(192, 154, 107, 0.04) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -20%;
+      left: -10%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(192, 154, 107, 0.03) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .hero-tag {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--copper);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 36px;
+      opacity: 0;
+      animation: fadeUp 0.7s ease forwards 0.2s;
+    }
+
+    .hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(44px, 6.5vw, 86px);
+      line-height: 1.08;
+      max-width: 750px;
+      opacity: 0;
+      animation: fadeUp 0.7s ease forwards 0.4s;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--copper);
+    }
+
+    .hero-sub {
+      font-size: 16px;
+      color: var(--text-secondary);
+      font-weight: 300;
+      line-height: 1.8;
+      max-width: 500px;
+      margin-top: 32px;
+      opacity: 0;
+      animation: fadeUp 0.7s ease forwards 0.6s;
+    }
+
+    .hero-meta {
+      margin-top: 56px;
+      display: flex;
+      gap: 48px;
+      opacity: 0;
+      animation: fadeUp 0.7s ease forwards 0.8s;
+    }
+
+    .hero-meta-item {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .hero-meta-item .label {
+      font-family: var(--mono);
+      font-size: 9px;
+      color: var(--text-tertiary);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    .hero-meta-item .value {
+      font-size: 14px;
+      color: var(--cream);
+      font-weight: 500;
+    }
+
+    .hero-divider {
+      position: absolute;
+      bottom: 0;
+      left: 60px;
+      right: 60px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border-medium), transparent);
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 100px 60px;
+      position: relative;
+    }
+
+    section+section {
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .section-label {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--copper);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(30px, 4vw, 52px);
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .section-title em {
+      font-style: italic;
+      color: var(--copper);
+    }
+
+    .section-sub {
+      font-size: 14px;
+      color: var(--text-secondary);
+      font-weight: 300;
+      line-height: 1.8;
+      max-width: 540px;
+      margin-bottom: 56px;
+    }
+
+    /* SITE MAP */
+    .site-map {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+    }
+
+    .site-page {
+      background: var(--bg-card);
+      padding: 40px 32px;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.35s ease;
+    }
+
+    .site-page::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: var(--copper);
+      opacity: 0;
+      transition: opacity 0.35s;
+    }
+
+    .site-page:hover {
+      background: var(--bg-elevated);
+    }
+
+    .site-page:hover::before {
+      opacity: 1;
+    }
+
+    .site-page .page-num {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--text-tertiary);
+      letter-spacing: 0.15em;
+      margin-bottom: 20px;
+    }
+
+    .site-page h3 {
+      font-family: var(--serif);
+      font-size: 22px;
+      margin-bottom: 14px;
+      color: var(--cream-bright);
+    }
+
+    .site-page p {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.75;
+      font-weight: 300;
+    }
+
+    /* PILLARS */
+    .pillars {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+
+    .pillar {
+      background: var(--bg-card);
+      padding: 44px 36px;
+      transition: all 0.35s ease;
+    }
+
+    .pillar:hover {
+      background: var(--bg-elevated);
+    }
+
+    .pillar-line {
+      width: 28px;
+      height: 2px;
+      margin-bottom: 28px;
+    }
+
+    .pillar-line.build {
+      background: var(--copper);
+    }
+
+    .pillar-line.grow {
+      background: var(--emerald);
+    }
+
+    .pillar-line.launch {
+      background: var(--cream);
+    }
+
+    .pillar h3 {
+      font-family: var(--serif);
+      font-size: 24px;
+      margin-bottom: 8px;
+      color: var(--cream-bright);
+    }
+
+    .pillar .tagline {
+      font-size: 13px;
+      color: var(--text-secondary);
+      font-weight: 300;
+      margin-bottom: 28px;
+      font-style: italic;
+    }
+
+    .pillar .services {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .pillar .services li {
+      font-size: 13px;
+      color: var(--text-secondary);
+      font-weight: 300;
+      padding-left: 18px;
+      position: relative;
+    }
+
+    .pillar .services li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 7px;
+      width: 4px;
+      height: 4px;
+      border-radius: 1px;
+    }
+
+    .pillar:nth-child(1) .services li::before {
+      background: var(--copper);
+    }
+
+    .pillar:nth-child(2) .services li::before {
+      background: var(--emerald);
+    }
+
+    .pillar:nth-child(3) .services li::before {
+      background: var(--cream);
+    }
+
+    /* PACKAGES */
+    .packages-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+    }
+
+    .package {
+      background: var(--bg-card);
+      padding: 40px 28px;
+      transition: all 0.35s ease;
+      position: relative;
+    }
+
+    .package:hover {
+      background: var(--bg-elevated);
+    }
+
+    .package.featured {
+      border-left: 2px solid var(--copper);
+    }
+
+    .package.featured::after {
+      content: 'POPULAR';
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      font-family: var(--mono);
+      font-size: 8px;
+      letter-spacing: 0.2em;
+      color: var(--copper);
+      border: 1px solid rgba(192, 154, 107, 0.25);
+      padding: 3px 10px;
+    }
+
+    .package .tier-from {
+      font-family: var(--mono);
+      font-size: 9px;
+      color: var(--text-tertiary);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .package .tier-price {
+      font-family: var(--serif);
+      font-size: 32px;
+      color: var(--copper-light);
+      margin-bottom: 6px;
+    }
+
+    .package .tier-name {
+      font-family: var(--serif);
+      font-size: 18px;
+      color: var(--cream-bright);
+      margin-bottom: 14px;
+    }
+
+    .package .tier-desc {
+      font-size: 12px;
+      color: var(--text-secondary);
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    /* CONFIGURATOR */
+    .config-preview {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      padding: 52px 48px;
+      max-width: 580px;
+      margin: 0 auto;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .config-preview::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, var(--copper), var(--emerald));
+    }
+
+    .config-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 44px;
+    }
+
+    .config-bar .bar-track {
+      flex: 1;
+      height: 2px;
+      background: rgba(232, 226, 214, 0.06);
+      margin: 0 16px;
+      position: relative;
+    }
+
+    .config-bar .bar-fill {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 40%;
+      background: var(--copper);
+    }
+
+    .config-bar .step-label {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--text-tertiary);
+      letter-spacing: 0.1em;
+    }
+
+    .config-question {
+      font-family: var(--serif);
+      font-size: 26px;
+      margin-bottom: 32px;
+      color: var(--cream-bright);
+    }
+
+    .config-options {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .config-option {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-subtle);
+      padding: 16px 22px;
+      transition: all 0.25s ease;
+      cursor: pointer;
+    }
+
+    .config-option:hover {
+      border-color: var(--border-accent);
+      background: var(--copper-surface);
+    }
+
+    .config-option.selected {
+      border-color: var(--copper);
+      background: var(--copper-surface);
+    }
+
+    .config-option .opt-title {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--cream);
+      margin-bottom: 2px;
+    }
+
+    .config-option .opt-sub {
+      font-size: 11px;
+      color: var(--text-tertiary);
+      font-weight: 300;
+    }
+
+    /* FLAGS */
+    .flags {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2px;
+    }
+
+    .flag {
+      background: var(--bg-card);
+      padding: 24px 28px;
+      border-left: 2px solid var(--copper);
+      transition: background 0.3s;
+    }
+
+    .flag:hover {
+      background: var(--bg-elevated);
+    }
+
+    .flag .flag-num {
+      font-family: var(--mono);
+      font-size: 9px;
+      color: var(--copper);
+      letter-spacing: 0.2em;
+      margin-bottom: 10px;
+    }
+
+    .flag p {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.65;
+      font-weight: 300;
+    }
+
+    /* CLOSING */
+    .closing {
+      padding: 140px 60px;
+      text-align: center;
+      position: relative;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .closing::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      height: 400px;
+      background: radial-gradient(ellipse, rgba(192, 154, 107, 0.04) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .closing h2 {
+      font-family: var(--serif);
+      font-size: clamp(36px, 5vw, 64px);
+      line-height: 1.1;
+      margin-bottom: 24px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .closing h2 em {
+      font-style: italic;
+      color: var(--copper);
+    }
+
+    .closing .closing-sub {
+      font-size: 15px;
+      color: var(--text-secondary);
+      font-weight: 300;
+      line-height: 1.8;
+      max-width: 460px;
+      margin: 0 auto 48px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .closing-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      background: var(--copper);
+      color: var(--bg);
+      padding: 16px 40px;
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      position: relative;
+      z-index: 2;
+    }
+
+    .closing-cta:hover {
+      background: var(--copper-light);
+      box-shadow: 0 0 40px var(--copper-glow);
+      transform: translateY(-2px);
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 28px 60px;
+      border-top: 1px solid var(--border-subtle);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    footer span {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--text-tertiary);
+      letter-spacing: 0.1em;
+    }
+
+    /* REVEAL */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      nav {
+        padding: 20px 40px;
+      }
+
+      .hero {
+        padding: 120px 40px 80px;
+      }
+
+      section {
+        padding: 80px 40px;
+      }
+
+      .site-map {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .pillars {
+        grid-template-columns: 1fr;
+      }
+
+      .packages-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .flags {
+        grid-template-columns: 1fr;
+      }
+
+      .closing {
+        padding: 100px 40px;
+      }
+
+      footer {
+        padding: 24px 40px;
+      }
+    }
+
+    @media (max-width: 680px) {
+      nav {
+        padding: 16px 24px;
+      }
+
+      .hero {
+        padding: 100px 24px 60px;
+      }
+
+      section {
+        padding: 64px 24px;
+      }
+
+      .hero-meta {
+        flex-wrap: wrap;
+        gap: 24px;
+      }
+
+      .site-map {
+        grid-template-columns: 1fr;
+      }
+
+      .packages-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .config-preview {
+        padding: 32px 24px;
+      }
+
+      .closing {
+        padding: 80px 24px;
+      }
+
+      footer {
+        padding: 20px 24px;
+        flex-direction: column;
+        gap: 8px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="progress" id="progress"></div>
+
+  <nav>
+    <div class="nav-logo">BA</div>
+    <div class="nav-label">Site Plan & Vision</div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-tag">Prepared for Daniel — BA Digi Marketing</div>
+    <h1>Your Site Will Be Your Best <em>Portfolio Piece.</em></h1>
+    <p class="hero-sub">This document maps the complete vision, architecture, and strategy for the BA Digi Marketing
+      website. Four pages. Three service pillars. One experience that proves capability before a single word is spoken.
+    </p>
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <span class="label">Pages</span>
+        <span class="value">4</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="label">Aesthetic</span>
+        <span class="value">Dark Cinematic</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="label">Core Idea</span>
+        <span class="value">The site IS the portfolio</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="label">Stack</span>
+        <span class="value">React + TypeScript</span>
+      </div>
+    </div>
+    <div class="hero-divider"></div>
+  </div>
+
+  <!-- STRATEGIC IDEA -->
+  <section>
+    <div class="section-label reveal">The Strategic Idea</div>
+    <div class="section-title reveal" style="max-width:640px;">If their own site looks this good, <em>imagine what
+        they'd build for you.</em></div>
+    <p class="section-sub reveal">Most marketing agency websites claim creativity but look identical. BA Digi's site
+      silently demonstrates capability through its own execution. Every pixel is proof of craft. Seven services grouped
+      into three pillars that tell one story: <strong style="color:var(--cream-bright);">Build it. Grow it. Launch
+        it.</strong></p>
+  </section>
+
+  <!-- SITE ARCHITECTURE -->
+  <section>
+    <div class="section-label reveal">Site Architecture</div>
+    <div class="section-title reveal">Four Pages. Each With a Job.</div>
+    <p class="section-sub reveal">Every page advances the argument. No filler, no "about us" walls of text. A structured
+      case for why BA Digi is the right partner.</p>
+    <div class="site-map">
+      <div class="site-page reveal">
+        <div class="page-num">PAGE 01</div>
+        <h3>Home</h3>
+        <p>The showpiece. Hero with visual proof. The three pillars. A craft gallery. Package teaser. Makes the first
+          impression and demonstrates capability before a single word about services.</p>
+      </div>
+      <div class="site-page reveal">
+        <div class="page-num">PAGE 02</div>
+        <h3>Services</h3>
+        <p>Deep dive into Build, Grow, and Launch. Each pillar gets its own section with services expanded beneath. Not
+          a flat grid — a structured argument for why they work together.</p>
+      </div>
+      <div class="site-page reveal">
+        <div class="page-num">PAGE 03</div>
+        <h3>Packages</h3>
+        <p>Static pricing tiers from £3k to £20k plus an interactive configurator quiz that recommends a package.
+          Pricing transparency and UX capability — demonstrated in one page.</p>
+      </div>
+      <div class="site-page reveal">
+        <div class="page-num">PAGE 04</div>
+        <h3>Contact</h3>
+        <p>Clean, direct. Email, phone, WhatsApp. The configurator result feeds into this page with pre-filled context —
+          so leads arrive warm, not cold.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- THREE PILLARS -->
+  <section>
+    <div class="section-label reveal">Service Framework</div>
+    <div class="section-title reveal">Build. Grow. Launch.</div>
+    <p class="section-sub reveal">Seven services grouped into three pillars. A feature list becomes a narrative — a
+      methodology clients follow from first asset to full campaign.</p>
+    <div class="pillars">
+      <div class="pillar reveal">
+        <div class="pillar-line build"></div>
+        <h3>Build</h3>
+        <div class="tagline">We create the assets.</div>
+        <ul class="services">
+          <li>Website Development</li>
+          <li>Graphic Design</li>
+          <li>Presentation Design</li>
+        </ul>
+      </div>
+      <div class="pillar reveal">
+        <div class="pillar-line grow"></div>
+        <h3>Grow</h3>
+        <div class="tagline">We drive the results.</div>
+        <ul class="services">
+          <li>Digital Marketing</li>
+          <li>Online Advertising</li>
+          <li>Traffic Generation</li>
+        </ul>
+      </div>
+      <div class="pillar reveal">
+        <div class="pillar-line launch"></div>
+        <h3>Launch</h3>
+        <div class="tagline">We orchestrate the play.</div>
+        <ul class="services">
+          <li>Marketing Campaigns</li>
+          <li>Strategy + Execution</li>
+          <li>Multi-channel Delivery</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- PACKAGES -->
+  <section>
+    <div class="section-label reveal">Pricing Structure</div>
+    <div class="section-title reveal">Transparent. Structured. <em>Real.</em></div>
+    <p class="section-sub reveal">Four tiers from £3k to £20k. Each scoped, priced, and delivered with clarity. The
+      Packages page will also feature an interactive configurator that recommends the right tier in 60 seconds.</p>
+    <div class="packages-grid">
+      <div class="package reveal">
+        <div class="tier-from">Starting from</div>
+        <div class="tier-price">£3,000</div>
+        <div class="tier-name">Starter</div>
+        <div class="tier-desc">For businesses getting started online. One core service — website or marketing setup.
+        </div>
+      </div>
+      <div class="package reveal">
+        <div class="tier-from">Starting from</div>
+        <div class="tier-price">£5,000</div>
+        <div class="tier-name">Growth</div>
+        <div class="tier-desc">For businesses ready to scale. Two combined services with integrated delivery.</div>
+      </div>
+      <div class="package featured reveal">
+        <div class="tier-from">Starting from</div>
+        <div class="tier-price">£10,000</div>
+        <div class="tier-name">Premium</div>
+        <div class="tier-desc">Full-stack: design, development, and marketing. End-to-end creative delivery.</div>
+      </div>
+      <div class="package reveal">
+        <div class="tier-from">Starting from</div>
+        <div class="tier-price">£20,000</div>
+        <div class="tier-name">Enterprise</div>
+        <div class="tier-desc">Bespoke scope. Dedicated team. Campaign, build, and ongoing management.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONFIGURATOR -->
+  <section>
+    <div class="section-label reveal" style="text-align:center;">Interactive Feature</div>
+    <div class="section-title reveal" style="text-align:center;">The Package Configurator</div>
+    <p class="section-sub reveal" style="text-align:center; margin-left:auto; margin-right:auto;">An interactive quiz on
+      the Packages page. Five questions. One recommendation. It captures lead data and demonstrates UX capability —
+      simultaneously.</p>
+    <div class="config-preview reveal">
+      <div class="config-bar">
+        <span class="step-label">Step 2 / 5</span>
+        <div class="bar-track">
+          <div class="bar-fill"></div>
+        </div>
+        <span class="step-label">40%</span>
+      </div>
+      <div class="config-question">What stage is your business at?</div>
+      <div class="config-options">
+        <div class="config-option">
+          <div class="opt-title">Just starting out</div>
+          <div class="opt-sub">I need to establish my digital presence</div>
+        </div>
+        <div class="config-option selected">
+          <div class="opt-title">Established but need to grow</div>
+          <div class="opt-sub">I have the basics — now I need strategy and execution</div>
+        </div>
+        <div class="config-option">
+          <div class="opt-title">Scaling / multi-channel</div>
+          <div class="opt-sub">I need coordinated campaigns across platforms</div>
+        </div>
+        <div class="config-option">
+          <div class="opt-title">Enterprise / complex requirements</div>
+          <div class="opt-sub">Dedicated team and bespoke scope</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FLAGS -->
+  <!-- <section>
+  <div class="section-label reveal">What We Need From You</div>
+  <div class="section-title reveal">10 Items to Finalise</div>
+  <p class="section-sub reveal">Before we build, your answers shape every page — from the hero headline to the package breakdowns.</p>
+  <div class="flags">
+    <div class="flag reveal"><div class="flag-num">01</div><p>What's your key differentiator? What should the hero headline lead with?</p></div>
+    <div class="flag reveal"><div class="flag-num">02</div><p>What does each service actually include? What platforms and tools do you use?</p></div>
+    <div class="flag reveal"><div class="flag-num">03</div><p>What's included at each price tier? £3k vs £5k vs £10k vs £20k — what changes?</p></div>
+    <div class="flag reveal"><div class="flag-num">04</div><p>Past work to showcase? Screenshots, links, or descriptions of portfolio pieces.</p></div>
+    <div class="flag reveal"><div class="flag-num">05</div><p>Full contact details — email, phone, WhatsApp number for the site.</p></div>
+    <div class="flag reveal"><div class="flag-num">06</div><p>Payment terms — upfront, split, or milestone-based? This shapes the FAQ.</p></div>
+    <div class="flag reveal"><div class="flag-num">07</div><p>Typical delivery timelines per service or per tier.</p></div>
+    <div class="flag reveal"><div class="flag-num">08</div><p>Post-delivery support — what's included after handoff?</p></div>
+    <div class="flag reveal"><div class="flag-num">09</div><p>Company registration, trading address, or legal info for footer compliance.</p></div>
+    <div class="flag reveal"><div class="flag-num">10</div><p>Is Marketing Campaigns a standalone offering or the combination of other services?</p></div>
+  </div>
+</section> -->
+
+  <!-- CLOSING -->
+  <div class="closing">
+    <div class="section-label reveal">Next Step</div>
+    <h2 class="reveal">Let's Build <em>BA Digi.</em></h2>
+    <p class="closing-sub reveal">Answer the 10 items above. We take it from there — page by page, section by section,
+      until the site is live and converting visitors into clients.</p>
+    <a href="#" class="closing-cta reveal">
+      Let's Start
+      <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+        <path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+      </svg>
+    </a>
+  </div>
+
+  <footer>
+    <span>BA Digi Marketing — Site Plan</span>
+    <span>Prepared by Newman — March 2026</span>
+  </footer>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
+      document.getElementById('progress').style.width = pct + '%';
+    });
+    const reveals = document.querySelectorAll('.reveal');
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => obs.observe(el));
+  </script>
+
+</body>
+
+</html>
