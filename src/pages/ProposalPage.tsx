@@ -1,13 +1,14 @@
-import Navbar from '../components/shared/Navbar';
-import ProgressBar from '../components/shared/ProgressBar';
-import Hero from '../components/proposal/Hero';
-import StrategicIdea from '../components/proposal/StrategicIdea';
-import SiteArchitecture from '../components/proposal/SiteArchitecture';
-import Pillars from '../components/proposal/Pillars';
-import Packages from '../components/proposal/Packages';
-import Configurator from '../components/proposal/Configurator';
-import Closing from '../components/proposal/Closing';
-import Footer from '../components/shared/Footer';
+import Closing from "@/components/proposal/Closing";
+import Configurator from "@/components/proposal/Configurator";
+import Hero from "@/components/proposal/Hero";
+import Packages from "@/components/proposal/Packages";
+import Pillars from "@/components/proposal/Pillars";
+import SiteArchitecture from "@/components/proposal/SiteArchitecture";
+import StrategicIdea from "@/components/proposal/StrategicIdea";
+import Footer from "@/components/shared/Footer";
+import Navbar from "@/components/shared/Navbar";
+import ProgressBar from "@/components/shared/ProgressBar";
+
 
 export default function ProposalPage() {
     return (

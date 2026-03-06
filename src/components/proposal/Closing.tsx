@@ -8,9 +8,9 @@ export default function Closing() {
             <ScrollReveal>
                 <h2>Let's Build <em>BA Digi.</em></h2>
             </ScrollReveal>
-            <ScrollReveal className="closing-sub">
+            {/* <ScrollReveal className="closing-sub">
                 Answer the 10 items above. We take it from there — page by page, section by section, until the site is live and converting visitors into clients.
-            </ScrollReveal>
+            </ScrollReveal> */}
             <ScrollReveal>
                 <a href="#" className="closing-cta">
                     Let's Start
