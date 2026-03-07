@@ -1,0 +1,129 @@
+.sc-list {
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.sc-list li {
+    font-size: 12px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    font-weight: 300;
+    padding-left: 16px;
+    position: relative;
+    list-style: none;
+}
+
+.sc-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 7px;
+    width: 4px;
+    height: 4px;
+    background: var(--copper);
+    border-radius: 1px;
+}
+
+.sc-note {
+    margin-top: 14px;
+    font-size: 11px;
+    color: var(--text-tertiary);
+    font-style: italic;
+    padding-left: 14px;
+    border-left: 2px solid var(--border-subtle);
+}
+
+.connects {
+    margin-top: 14px;
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--emerald);
+    letter-spacing: 0.05em;
+}
+
+.pillars-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-top: 20px;
+    margin-bottom: 14px;
+}
+
+.pill-mini {
+    background: var(--bg-elevated);
+    padding: 16px 20px;
+    text-align: center;
+}
+
+.pill-mini .pm-name {
+    font-family: var(--serif);
+    font-size: 15px;
+    margin-bottom: 4px;
+}
+
+.pill-mini .pm-tag {
+    font-size: 11px;
+    color: var(--text-tertiary);
+    font-weight: 300;
+}
+
+.pill-mini:nth-child(1) {
+    border-top: 2px solid var(--copper);
+}
+
+.pill-mini:nth-child(2) {
+    border-top: 2px solid var(--emerald);
+}
+
+.pill-mini:nth-child(3) {
+    border-top: 2px solid var(--cream);
+}
+
+.tiers-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    margin-top: 20px;
+    margin-bottom: 14px;
+}
+
+.tier-mini {
+    background: var(--bg-elevated);
+    padding: 20px 16px;
+    text-align: center;
+}
+
+.tier-mini .tm-price {
+    font-family: var(--serif);
+    font-size: 20px;
+    color: var(--copper-light);
+    margin-bottom: 4px;
+}
+
+.tier-mini .tm-name {
+    font-size: 12px;
+    color: var(--cream);
+    font-weight: 400;
+}
+
+.tier-mini.featured {
+    border-top: 2px solid var(--copper);
+}
+
+@media (max-width: 1024px) {
+    .tiers-row {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 680px) {
+    .pillars-row {
+        grid-template-columns: 1fr;
+    }
+
+    .tiers-row {
+        grid-template-columns: 1fr;
+    }
+}

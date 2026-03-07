@@ -6,15 +6,17 @@ export default function ProgressBar() {
 
     useEffect(() => {
         const handleScroll = () => {
-            const el = barRef.current;
-            if (!el) return;
+            if (!barRef.current) return;
             const scrollY = window.scrollY;
-            const height = document.body.scrollHeight - window.innerHeight;
-            const pct = (scrollY / height) * 100;
-            el.style.width = `${pct}%`;
+            const docHeight = document.body.scrollHeight - window.innerHeight;
+            const percentage = (scrollY / docHeight) * 100;
+            barRef.current.style.width = `${percentage}%`;
         };
 
-        window.addEventListener('scroll', handleScroll, { passive: true });
+        window.addEventListener('scroll', handleScroll);
+        // Initial call to set width on mount
+        handleScroll();
+
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 

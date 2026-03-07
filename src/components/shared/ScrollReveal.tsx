@@ -1,18 +1,16 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef, ElementType, HTMLAttributes, ReactNode } from 'react';
 
-interface ScrollRevealProps {
-    children: React.ReactNode;
+interface ScrollRevealProps extends HTMLAttributes<HTMLElement> {
+    children: ReactNode;
     className?: string;
-    style?: React.CSSProperties;
+    as?: ElementType;
+    href?: string;
 }
 
-export default function ScrollReveal({ children, className = '', style }: ScrollRevealProps) {
-    const ref = useRef<HTMLDivElement>(null);
+export default function ScrollReveal({ children, className = '', as: Component = 'div', ...props }: ScrollRevealProps) {
+    const ref = useRef<HTMLElement>(null);
 
     useEffect(() => {
-        const el = ref.current;
-        if (!el) return;
-
         const observer = new IntersectionObserver(
             (entries) => {
                 entries.forEach((entry) => {
@@ -22,19 +20,24 @@ export default function ScrollReveal({ children, className = '', style }: Scroll
                     }
                 });
             },
-            { threshold: 0.1 }
+            { threshold: 0.08 }
         );
 
-        observer.observe(el);
+        const el = ref.current;
+        if (el) {
+            observer.observe(el);
+        }
 
         return () => {
-            if (el) observer.unobserve(el);
+            if (el) {
+                observer.unobserve(el);
+            }
         };
     }, []);
 
     return (
-        <div ref={ref} className={`reveal ${className}`} style={style}>
+        <Component ref={ref} className={`reveal ${className}`} {...props}>
             {children}
-        </div>
+        </Component>
     );
 }

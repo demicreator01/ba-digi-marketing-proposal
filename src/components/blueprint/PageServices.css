@@ -1,0 +1,46 @@
+.process-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    margin-top: 20px;
+}
+
+.p-step {
+    background: var(--bg-elevated);
+    padding: 20px;
+    position: relative;
+}
+
+.p-step .ps-num {
+    font-family: var(--mono);
+    font-size: 9px;
+    color: var(--copper);
+    letter-spacing: 0.15em;
+    margin-bottom: 8px;
+}
+
+.p-step .ps-name {
+    font-family: var(--serif);
+    font-size: 15px;
+    margin-bottom: 6px;
+    color: var(--cream-bright);
+}
+
+.p-step .ps-desc {
+    font-size: 11px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    font-weight: 300;
+}
+
+@media (max-width: 1024px) {
+    .process-steps {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 680px) {
+    .process-steps {
+        grid-template-columns: 1fr;
+    }
+}

@@ -19,12 +19,22 @@ nav {
     color: var(--copper);
 }
 
-.nav-label {
-    font-family: var(--mono);
-    font-size: 10px;
+.nav-links {
+    display: flex;
+    gap: 28px;
+    align-items: center;
+}
+
+.nav-links a {
+    font-family: var(--sans);
+    font-size: 11px;
     color: var(--text-tertiary);
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--cream);
 }
 
 @media (max-width: 1024px) {
@@ -36,5 +46,9 @@ nav {
 @media (max-width: 680px) {
     nav {
         padding: 16px 24px;
+    }
+
+    .nav-links {
+        display: none;
     }
 }

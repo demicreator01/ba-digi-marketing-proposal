@@ -1,7 +1,6 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
-import ProposalPage from './pages/ProposalPage';
+import BlueprintPage from './pages/BlueprintPage';
 
 function ScrollToTop() {
     const { pathname } = useLocation();
@@ -15,12 +14,12 @@ function ScrollToTop() {
 
 function App() {
     return (
-        <Router>
+        <BrowserRouter>
             <ScrollToTop />
             <Routes>
-                <Route path="/" element={<ProposalPage />} />
+                <Route path="/" element={<BlueprintPage />} />
             </Routes>
-        </Router>
+        </BrowserRouter>
     );
 }
 

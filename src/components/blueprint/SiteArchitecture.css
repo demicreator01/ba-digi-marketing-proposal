@@ -1,0 +1,91 @@
+.funnel {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    margin-top: 48px;
+}
+
+.funnel-step {
+    background: var(--bg-card);
+    padding: 36px 28px;
+    position: relative;
+    transition: background 0.35s;
+}
+
+.funnel-step:hover {
+    background: var(--bg-elevated);
+}
+
+.funnel-step::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    opacity: 0;
+    transition: opacity 0.35s;
+}
+
+.funnel-step:nth-child(1)::before {
+    background: var(--copper);
+}
+
+.funnel-step:nth-child(2)::before {
+    background: var(--emerald);
+}
+
+.funnel-step:nth-child(3)::before {
+    background: var(--copper-light);
+}
+
+.funnel-step:nth-child(4)::before {
+    background: var(--cream);
+}
+
+.funnel-step:hover::before {
+    opacity: 1;
+}
+
+.funnel-step .f-page {
+    font-family: var(--mono);
+    font-size: 9px;
+    color: var(--text-tertiary);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.funnel-step h4 {
+    font-family: var(--serif);
+    font-size: 20px;
+    margin-bottom: 8px;
+    color: var(--cream-bright);
+}
+
+.funnel-step .f-job {
+    font-size: 13px;
+    color: var(--copper);
+    font-weight: 400;
+    margin-bottom: 14px;
+    font-style: italic;
+}
+
+.funnel-step p {
+    font-size: 12px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    font-weight: 300;
+}
+
+@media (max-width: 1024px) {
+    .funnel {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 680px) {
+    .funnel {
+        grid-template-columns: 1fr;
+    }
+}
