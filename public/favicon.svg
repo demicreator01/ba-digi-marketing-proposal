@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&amp;display=swap');
+    text {
+      font-family: 'DM Serif Display', serif;
+      font-size: 72px;
+      fill: #c09a6b;
+      dominant-baseline: central;
+      text-anchor: middle;
+    }
+  </style>
+  <rect width="128" height="128" rx="24" fill="#0b0b0e"/>
+  <text x="64" y="68">BA</text>
+</svg>
