@@ -5,39 +5,39 @@ export default function Pillars() {
     return (
         <section>
             <ScrollReveal className="section-label">Service Framework</ScrollReveal>
-            <ScrollReveal className="section-title">Build. Grow. Launch.</ScrollReveal>
+            <ScrollReveal className="section-title">Design. Build. Scale.</ScrollReveal>
             <ScrollReveal className="section-sub">
-                Seven services grouped into three pillars. A feature list becomes a narrative — a methodology clients follow from first asset to full campaign.
+                Nine services grouped into three pillars. A feature list becomes a sequence — a client journey from brand identity through to full campaign delivery.
             </ScrollReveal>
             <div className="pillars">
                 <ScrollReveal className="pillar">
+                    <div className="pillar-line design"></div>
+                    <h3>Design</h3>
+                    <div className="tagline">We shape the perception.</div>
+                    <ul className="services">
+                        <li>Brand Strategy &amp; Identity</li>
+                        <li>Graphic &amp; Presentation Design</li>
+                        <li>UI/UX Design &amp; Copywriting</li>
+                    </ul>
+                </ScrollReveal>
+                <ScrollReveal className="pillar">
                     <div className="pillar-line build"></div>
                     <h3>Build</h3>
-                    <div className="tagline">We create the assets.</div>
+                    <div className="tagline">We engineer the foundation.</div>
                     <ul className="services">
-                        <li>Website Development</li>
-                        <li>Graphic Design</li>
-                        <li>Presentation Design</li>
+                        <li>Custom Web Development</li>
+                        <li>E-Commerce &amp; Platform Solutions</li>
+                        <li>Technical SEO &amp; Integration</li>
                     </ul>
                 </ScrollReveal>
                 <ScrollReveal className="pillar">
-                    <div className="pillar-line grow"></div>
-                    <h3>Grow</h3>
-                    <div className="tagline">We drive the results.</div>
+                    <div className="pillar-line scale"></div>
+                    <h3>Scale</h3>
+                    <div className="tagline">We amplify what we build.</div>
                     <ul className="services">
-                        <li>Digital Marketing</li>
-                        <li>Online Advertising</li>
-                        <li>Traffic Generation</li>
-                    </ul>
-                </ScrollReveal>
-                <ScrollReveal className="pillar">
-                    <div className="pillar-line launch"></div>
-                    <h3>Launch</h3>
-                    <div className="tagline">We orchestrate the play.</div>
-                    <ul className="services">
-                        <li>Marketing Campaigns</li>
-                        <li>Strategy + Execution</li>
-                        <li>Multi-channel Delivery</li>
+                        <li>Search Engine Marketing</li>
+                        <li>Social Media &amp; Paid Campaigns</li>
+                        <li>Conversion &amp; Analytics</li>
                     </ul>
                 </ScrollReveal>
             </div>

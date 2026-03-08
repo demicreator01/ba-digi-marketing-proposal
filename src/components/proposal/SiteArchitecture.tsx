@@ -18,7 +18,7 @@ export default function SiteArchitecture() {
                 <ScrollReveal className="site-page">
                     <div className="page-num">PAGE 02</div>
                     <h3>Services</h3>
-                    <p>Deep dive into Build, Grow, and Launch. Each pillar gets its own section with services expanded beneath. Not a flat grid — a structured argument for why they work together.</p>
+                    <p>Deep dive into Design, Build, and Scale. Each pillar gets its own section with 3 service cards expanded beneath. A full Campaign Delivery spotlight card follows Scale — giving marketing campaigns the visual prominence they deserve.</p>
                 </ScrollReveal>
                 <ScrollReveal className="site-page">
                     <div className="page-num">PAGE 03</div>

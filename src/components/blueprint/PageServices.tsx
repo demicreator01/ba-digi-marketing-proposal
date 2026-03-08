@@ -20,23 +20,23 @@ export default function PageServices() {
                             <div className="sc-name">Hero</div>
                         </div>
                         <div className="sc-content">
-                            Shorter hero — 60–70vh, centered. Heading: <strong>"Build. Grow. Launch."</strong> — each word on its own line, in its pillar color (copper, emerald, cream). Large, bold, immediate orientation.<br /><br />
-                            Subtext: "Three disciplines. One infrastructure. Every project follows this logic."
+                            Shorter hero — 60–70vh, centered. Heading: <strong>"Design · Build · Scale"</strong> — each word on its own line, in its pillar color (cream, copper, emerald). Large, bold, immediate orientation.<br />
+                            Subtext: "Three disciplines. One infrastructure. Every project follows this logic — designed with intention, built from the ground up, scaled with precision."
                         </div>
                     </ScrollReveal>
 
                     <ScrollReveal className="sec-card">
                         <div>
                             <div className="sc-intent">Section 2</div>
-                            <div className="sc-name">BUILD Pillar</div>
-                            <div className="sc-belief">"They create digital assets with craft and intentionality."</div>
+                            <div className="sc-name">DESIGN Pillar</div>
+                            <div className="sc-belief">"They craft perception — brand, visual language, and the words that make it land."</div>
                         </div>
                         <div className="sc-content">
-                            Copper accent label. Heading: "We Create the Assets." Three service cards side by side:
+                            Cream accent label. Heading: "We Shape the Perception." Three service cards side by side:
                             <ul className="sc-list">
-                                <li><strong>Website Development</strong> — custom design, responsive, SEO foundations, performance optimized, CMS integration, analytics setup</li>
-                                <li><strong>Graphic Design</strong> — brand identity, social media assets, advertising creatives, print materials, style guides</li>
-                                <li><strong>Presentation Design</strong> — pitch decks, investor presentations, sales decks, corporate templates</li>
+                                <li><strong>Brand Strategy &amp; Identity</strong> — positioning, brand voice, visual identity system, logo, style guide, messaging framework</li>
+                                <li><strong>Graphic &amp; Presentation Design</strong> — social media assets, pitch decks, investor presentations, advertising creatives, print materials</li>
+                                <li><strong>UI/UX Design &amp; Copywriting</strong> — interface design, user flows, wireframes, landing page copy, tone of voice</li>
                             </ul>
                             Each card has an icon, description, and capabilities list showing specific deliverables.
                         </div>
@@ -45,15 +45,15 @@ export default function PageServices() {
                     <ScrollReveal className="sec-card">
                         <div>
                             <div className="sc-intent">Section 3</div>
-                            <div className="sc-name">GROW Pillar</div>
-                            <div className="sc-belief">"Growth isn't guesswork — they use structured strategies."</div>
+                            <div className="sc-name">BUILD Pillar</div>
+                            <div className="sc-belief">"They engineer the digital infrastructure — properly, not templated."</div>
                         </div>
                         <div className="sc-content">
-                            Emerald accent label. Heading: "We Drive the Results." Three service cards:
+                            Copper accent label. Heading: "We Engineer the Foundation." Three service cards:
                             <ul className="sc-list">
-                                <li><strong>Digital Marketing</strong> — strategy, content marketing, email campaigns, SEO, social media management, funnel design</li>
-                                <li><strong>Online Advertising</strong> — Google Ads, Meta Ads, LinkedIn, retargeting, A/B testing, conversion tracking</li>
-                                <li><strong>Traffic Generation</strong> — organic growth, referral systems, partnership-driven traffic, landing page optimisation</li>
+                                <li><strong>Custom Web Development</strong> — custom design &amp; dev, CMS integration, performance optimisation, mobile-first responsive, Core Web Vitals</li>
+                                <li><strong>E-Commerce &amp; Platform Solutions</strong> — online stores, payment gateways, product catalogues, checkout optimisation, platform migration</li>
+                                <li><strong>Technical SEO &amp; Integration</strong> — technical SEO audit, schema markup, third-party integrations, analytics &amp; tracking setup, site speed</li>
                             </ul>
                         </div>
                     </ScrollReveal>
@@ -61,14 +61,18 @@ export default function PageServices() {
                     <ScrollReveal className="sec-card">
                         <div>
                             <div className="sc-intent">Section 4</div>
-                            <div className="sc-name">LAUNCH Pillar</div>
-                            <div className="sc-belief">"Campaigns are coordinated strategic plays, not random ads."</div>
+                            <div className="sc-name">SCALE Pillar</div>
+                            <div className="sc-belief">"Marketing here is strategy-led, not just ads."</div>
                         </div>
                         <div className="sc-content">
-                            Cream accent label. Heading: "We Orchestrate the Full Play." <strong>Single deep card</strong> — not three. Campaigns are the culmination of Build + Grow working together.<br /><br />
-                            <strong>Marketing Campaigns:</strong> end-to-end strategy, creative development, multi-channel execution, budget management, performance tracking, post-campaign analysis.<br /><br />
-                            Visual: a campaign flow diagram — Strategy → Creative → Launch → Optimise → Report
-                            <div className="sc-note">Presenting campaigns as one comprehensive offering — not three sub-services — positions it as the premium tier of what BA Digi does.</div>
+                            Emerald accent label. Heading: "We Amplify What We Build." Three service cards:<br /><br />
+                            <ul className="sc-list">
+                                <li><strong>Search Engine Marketing</strong> — SEO strategy &amp; execution, Google Ads, keyword research, content planning, technical audits, ranking reports</li>
+                                <li><strong>Social Media &amp; Paid Campaigns</strong> — Meta Ads, LinkedIn, social management, retargeting, A/B testing, creative iteration</li>
+                                <li><strong>Conversion &amp; Analytics</strong> — CRO, analytics setup, funnel design, landing page testing, monthly performance reviews</li>
+                            </ul>
+                            <strong>Below the 3 cards:</strong> Full Campaign Delivery spotlight card — a wide single card with the 5-node campaign flow diagram (Strategy &amp; Brief → Creative &amp; Assets → Launch &amp; Activate → Optimise → Report &amp; Refine). This card is the flagship offer — campaigns as the full-play culmination of Design + Build + Scale working together.
+                            <div className="sc-note">The Campaign Delivery card sits below Scale's 3-card grid before the Process section — it breaks the grid rhythm intentionally. It's the only full-width card on the page. That visual weight signals Premium.</div>
                         </div>
                     </ScrollReveal>
 

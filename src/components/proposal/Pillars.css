@@ -20,16 +20,16 @@
     margin-bottom: 28px;
 }
 
+.pillar-line.design {
+    background: var(--cream);
+}
+
 .pillar-line.build {
     background: var(--copper);
 }
 
-.pillar-line.grow {
+.pillar-line.scale {
     background: var(--emerald);
-}
-
-.pillar-line.launch {
-    background: var(--cream);
 }
 
 .pillar h3 {
@@ -73,15 +73,15 @@
 }
 
 .pillar:nth-child(1) .services li::before {
-    background: var(--copper);
+    background: var(--cream);
 }
 
 .pillar:nth-child(2) .services li::before {
-    background: var(--emerald);
+    background: var(--copper);
 }
 
 .pillar:nth-child(3) .services li::before {
-    background: var(--cream);
+    background: var(--emerald);
 }
 
 @media (max-width: 1024px) {

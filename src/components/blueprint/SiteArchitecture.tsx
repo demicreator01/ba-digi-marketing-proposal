@@ -20,7 +20,7 @@ export default function SiteArchitecture() {
                     <div className="f-page">Page 02</div>
                     <h4>Services</h4>
                     <div className="f-job">The Depth</div>
-                    <p>Answers "can you do what I specifically need?" Walks through Build, Grow, Launch with enough detail to feel comprehensive. Shows the process — how BA Digi works start to finish.</p>
+                    <p>Answers "can you do what I specifically need?" Walks through Design, Build, Scale with enough detail to feel comprehensive. Also features a full Campaign Delivery spotlight card. Shows the process — how BA Digi works start to finish.</p>
                 </ScrollReveal>
                 <ScrollReveal className="funnel-step">
                     <div className="f-page">Page 03</div>

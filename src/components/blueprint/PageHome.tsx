@@ -36,24 +36,24 @@ export default function PageHome() {
                         <div>
                             <div className="sc-intent">Section 2</div>
                             <div className="sc-name">The Three Pillars</div>
-                            <div className="sc-belief">"They have a structured methodology: Build, Grow, Launch."</div>
+                            <div className="sc-belief">"They have a structured methodology: Design, Build, Scale."</div>
                         </div>
                         <div className="sc-content">
                             <strong>Intro:</strong> "One Agency. Three Disciplines." — "From the first pixel to the last campaign report."<br /><br />
                             Three tall cards side by side, each with a colored accent line:
                             <div className="pillars-row">
                                 <div className="pill-mini">
-                                    <div className="pm-name">Build</div><div className="pm-tag">Create the assets</div>
+                                    <div className="pm-name">Design</div><div className="pm-tag">Shape the perception</div>
                                 </div>
                                 <div className="pill-mini">
-                                    <div className="pm-name">Grow</div><div className="pm-tag">Drive the results</div>
+                                    <div className="pm-name">Build</div><div className="pm-tag">Engineer the foundation</div>
                                 </div>
                                 <div className="pill-mini">
-                                    <div className="pm-name">Launch</div><div className="pm-tag">Orchestrate the play</div>
+                                    <div className="pm-name">Scale</div><div className="pm-tag">Amplify what we build</div>
                                 </div>
                             </div>
-                            Each card lists its 2–3 services beneath the tagline. Each links to its section on the Services page.
-                            <div className="sc-note">Most agencies list services in a flat grid — "SEO, Web Design, PPC..." Grouping into pillars creates a journey, not a menu. The client thinks "they build it, grow it, then launch campaigns."</div>
+                            Each card lists its 3 services beneath the tagline. Each links to its section on the Services page.
+                            <div className="sc-note">Most agencies list services in a flat grid — "SEO, Web Design, PPC..." Grouping into pillars creates a journey, not a menu. The client thinks "they design it, build it, then scale it."</div>
                             <div className="connects">→ Connects to: Services page (deep dive) and Proof section below.</div>
                         </div>
                     </ScrollReveal>
@@ -66,10 +66,9 @@ export default function PageHome() {
                             <div className="sc-belief">"Their work quality is visually evident — I can see it."</div>
                         </div>
                         <div className="sc-content">
-                            A staggered grid of 4–6 work preview cards. Each card shows a type label ("Website", "Campaign", "Social", "Presentation") inside a dark styled frame with CSS texture. Not fake screenshots — the visual design of the cards themselves demonstrates capability.<br /><br />
-                            <strong>Closing line below:</strong> "Every project is a proof of concept. <em>For what we'd build for you.</em>"<br /><br />
-                            {/* <strong>Small note:</strong> "Portfolio pieces added with your approval." — tells Daniel we need his work samples, without breaking the visitor's experience. */}
-                            <div className="sc-note">The site itself IS the proof. Placeholder frames look intentional — like a gallery waiting for work. Real pieces get added as Daniel completes projects. The section is architecturally ready.</div>
+                            A staggered grid of 4 work preview cards. Each card shows <strong>[REDACTED]</strong> as the label inside a dark styled frame with radial glow and CSS texture. Not fake screenshots — the atmospheric design of the cards themselves demonstrates capability.<br /><br />
+                            <strong>Note below the cards:</strong> "We don't publish client work without permission. <strong>The same discretion we'd extend to you.</strong>"
+                            <div className="sc-note">The emptiness is intentional — reframed as professionalism, not absence. The [REDACTED] label signals: "we respect client confidentiality." That's a trust signal for every new client who sees it. Real pieces get added as projects complete with approval.</div>
                             <div className="connects">→ Connects to: Why BA Digi section — from "look at what we do" to "here's why we're different."</div>
                         </div>
                     </ScrollReveal>

@@ -1,624 +1,1591 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BA DIGI MARKETING — Complete Site Blueprint</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Sora:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-  :root{
-    --bg:#0b0b0e;--bg-card:#141417;--bg-elevated:#1c1c20;--bg-surface:#111114;
-    --cream:#e8e2d6;--cream-bright:#f5f0e8;
-    --text-primary:#e8e2d6;--text-secondary:rgba(232,226,214,0.50);--text-tertiary:rgba(232,226,214,0.30);
-    --copper:#c09a6b;--copper-light:#d4b088;--copper-glow:rgba(192,154,107,0.20);--copper-surface:rgba(192,154,107,0.06);
-    --emerald:#5a9e7c;--emerald-dim:rgba(90,158,124,0.15);
-    --border-subtle:rgba(232,226,214,0.06);--border-medium:rgba(232,226,214,0.12);--border-accent:rgba(192,154,107,0.25);
-    --serif:'DM Serif Display',Georgia,serif;--sans:'Sora',sans-serif;--mono:'DM Mono',monospace;
-  }
-  html{scroll-behavior:smooth}
-  body{font-family:var(--sans);background:var(--bg);color:var(--text-primary);overflow-x:hidden;-webkit-font-smoothing:antialiased}
-  body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");opacity:0.025;pointer-events:none;z-index:9999}
-  .progress{position:fixed;top:0;left:0;height:1px;background:var(--copper);z-index:1000;transition:width 0.1s;width:0%}
-  ::-webkit-scrollbar{width:3px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--copper);border-radius:2px}
-  a{text-decoration:none;color:inherit}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BA DIGI MARKETING — Complete Site Blueprint</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Sora:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
 
-  /* NAV */
-  nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:24px 60px;display:flex;justify-content:space-between;align-items:center;background:rgba(11,11,14,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border-subtle)}
-  .nav-logo{font-family:var(--serif);font-size:22px;color:var(--copper)}
-  .nav-links{display:flex;gap:28px;align-items:center}
-  .nav-links a{font-family:var(--sans);font-size:11px;color:var(--text-tertiary);letter-spacing:0.06em;transition:color 0.3s}
-  .nav-links a:hover{color:var(--cream)}
+    :root {
+      --bg: #0b0b0e;
+      --bg-card: #141417;
+      --bg-elevated: #1c1c20;
+      --bg-surface: #111114;
+      --cream: #e8e2d6;
+      --cream-bright: #f5f0e8;
+      --text-primary: #e8e2d6;
+      --text-secondary: rgba(232, 226, 214, 0.50);
+      --text-tertiary: rgba(232, 226, 214, 0.30);
+      --copper: #c09a6b;
+      --copper-light: #d4b088;
+      --copper-glow: rgba(192, 154, 107, 0.20);
+      --copper-surface: rgba(192, 154, 107, 0.06);
+      --emerald: #5a9e7c;
+      --emerald-dim: rgba(90, 158, 124, 0.15);
+      --border-subtle: rgba(232, 226, 214, 0.06);
+      --border-medium: rgba(232, 226, 214, 0.12);
+      --border-accent: rgba(192, 154, 107, 0.25);
+      --serif: 'DM Serif Display', Georgia, serif;
+      --sans: 'Sora', sans-serif;
+      --mono: 'DM Mono', monospace;
+    }
 
-  /* HERO */
-  .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:140px 60px 100px;position:relative;overflow:hidden}
-  .hero::before{content:'';position:absolute;top:-30%;right:-15%;width:700px;height:700px;background:radial-gradient(circle,rgba(192,154,107,0.04) 0%,transparent 65%);pointer-events:none}
-  .hero::after{content:'';position:absolute;bottom:-20%;left:-10%;width:500px;height:500px;background:radial-gradient(circle,rgba(192,154,107,0.03) 0%,transparent 65%);pointer-events:none}
-  .hero-tag{font-family:var(--mono);font-size:10px;color:var(--copper);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:36px;opacity:0;animation:fadeUp 0.7s ease forwards 0.2s}
-  .hero h1{font-family:var(--serif);font-size:clamp(44px,6.5vw,86px);line-height:1.08;max-width:750px;opacity:0;animation:fadeUp 0.7s ease forwards 0.4s}
-  .hero h1 em{font-style:italic;color:var(--copper)}
-  .hero-sub{font-size:16px;color:var(--text-secondary);font-weight:300;line-height:1.8;max-width:500px;margin-top:32px;opacity:0;animation:fadeUp 0.7s ease forwards 0.6s}
-  .hero-meta{margin-top:56px;display:flex;gap:48px;opacity:0;animation:fadeUp 0.7s ease forwards 0.8s}
-  .hero-meta-item{display:flex;flex-direction:column;gap:6px}
-  .hero-meta-item .label{font-family:var(--mono);font-size:9px;color:var(--text-tertiary);letter-spacing:0.2em;text-transform:uppercase}
-  .hero-meta-item .value{font-size:14px;color:var(--cream);font-weight:500}
-  .hero-divider{position:absolute;bottom:0;left:60px;right:60px;height:1px;background:linear-gradient(90deg,transparent,var(--border-medium),transparent)}
+    html {
+      scroll-behavior: smooth
+    }
 
-  /* SECTIONS */
-  .s{padding:100px 60px;position:relative}
-  .s+.s{border-top:1px solid var(--border-subtle)}
-  .s-label{font-family:var(--mono);font-size:10px;color:var(--copper);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:16px}
-  .s-title{font-family:var(--serif);font-size:clamp(30px,4vw,52px);line-height:1.1;margin-bottom:20px}
-  .s-title em{font-style:italic;color:var(--copper)}
-  .s-sub{font-size:14px;color:var(--text-secondary);font-weight:300;line-height:1.8;max-width:540px;margin-bottom:48px}
-  .s-center{text-align:center}
-  .s-center .s-sub{margin-left:auto;margin-right:auto}
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--text-primary);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased
+    }
 
-  /* VISITOR BELIEFS */
-  .beliefs{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-bottom:56px}
-  .belief{background:var(--bg-card);padding:32px 28px;transition:background 0.35s}
-  .belief:hover{background:var(--bg-elevated)}
-  .belief .b-num{font-family:var(--mono);font-size:10px;color:var(--copper);letter-spacing:0.15em;margin-bottom:14px}
-  .belief p{font-size:13px;color:var(--text-secondary);line-height:1.7;font-weight:300}
-  .belief p strong{color:var(--cream-bright);font-weight:500}
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      opacity: 0.025;
+      pointer-events: none;
+      z-index: 9999
+    }
 
-  /* FUNNEL FLOW */
-  .funnel{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:48px}
-  .funnel-step{background:var(--bg-card);padding:36px 28px;position:relative;transition:background 0.35s}
-  .funnel-step:hover{background:var(--bg-elevated)}
-  .funnel-step::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;opacity:0;transition:opacity 0.35s}
-  .funnel-step:nth-child(1)::before{background:var(--copper)}
-  .funnel-step:nth-child(2)::before{background:var(--emerald)}
-  .funnel-step:nth-child(3)::before{background:var(--copper-light)}
-  .funnel-step:nth-child(4)::before{background:var(--cream)}
-  .funnel-step:hover::before{opacity:1}
-  .funnel-step .f-page{font-family:var(--mono);font-size:9px;color:var(--text-tertiary);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:12px}
-  .funnel-step h4{font-family:var(--serif);font-size:20px;margin-bottom:8px;color:var(--cream-bright)}
-  .funnel-step .f-job{font-size:13px;color:var(--copper);font-weight:400;margin-bottom:14px;font-style:italic}
-  .funnel-step p{font-size:12px;color:var(--text-secondary);line-height:1.7;font-weight:300}
+    .progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 1px;
+      background: var(--copper);
+      z-index: 1000;
+      transition: width 0.1s;
+      width: 0%
+    }
 
-  /* PAGE DETAIL BLOCKS */
-  .page-detail{margin-bottom:2px;border-top:1px solid var(--border-subtle);padding-top:80px}
-  .page-header{display:flex;align-items:baseline;gap:20px;margin-bottom:12px}
-  .page-num-large{font-family:var(--serif);font-size:clamp(48px,8vw,100px);color:var(--bg-elevated);line-height:1;font-weight:400;letter-spacing:-0.03em}
-  .page-name{font-family:var(--serif);font-size:clamp(28px,3.5vw,44px)}
-  .page-intent{font-size:14px;color:var(--text-secondary);font-weight:300;line-height:1.8;max-width:560px;margin-bottom:48px}
+    ::-webkit-scrollbar {
+      width: 3px
+    }
 
-  /* SECTION CARDS */
-  .section-cards{display:flex;flex-direction:column;gap:2px;margin-bottom:60px}
-  .sec-card{background:var(--bg-card);padding:36px 40px;display:grid;grid-template-columns:200px 1fr;gap:40px;transition:background 0.35s}
-  .sec-card:hover{background:var(--bg-elevated)}
-  .sec-card .sc-name{font-family:var(--serif);font-size:18px;color:var(--cream-bright);margin-bottom:6px}
-  .sec-card .sc-intent{font-family:var(--mono);font-size:9px;color:var(--copper);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:4px}
-  .sec-card .sc-belief{font-size:12px;color:var(--text-tertiary);font-style:italic;line-height:1.5}
-  .sec-card .sc-content{font-size:13px;color:var(--text-secondary);line-height:1.8;font-weight:300}
-  .sec-card .sc-content strong{color:var(--cream);font-weight:500}
-  .sec-card .sc-content em{font-style:italic;color:var(--copper);font-weight:400}
-  .sc-list{margin-top:16px;display:flex;flex-direction:column;gap:8px}
-  .sc-list li{font-size:12px;color:var(--text-secondary);line-height:1.6;font-weight:300;padding-left:16px;position:relative;list-style:none}
-  .sc-list li::before{content:'';position:absolute;left:0;top:7px;width:4px;height:4px;background:var(--copper);border-radius:1px}
-  .sc-note{margin-top:14px;font-size:11px;color:var(--text-tertiary);font-style:italic;padding-left:14px;border-left:2px solid var(--border-subtle)}
+    ::-webkit-scrollbar-track {
+      background: var(--bg)
+    }
 
-  /* CONNECTION ARROWS */
-  .connects{margin-top:14px;font-family:var(--mono);font-size:10px;color:var(--emerald);letter-spacing:0.05em}
+    ::-webkit-scrollbar-thumb {
+      background: var(--copper);
+      border-radius: 2px
+    }
 
-  /* PILLARS MINI */
-  .pillars-row{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:20px;margin-bottom:14px}
-  .pill-mini{background:var(--bg-elevated);padding:16px 20px;text-align:center}
-  .pill-mini .pm-name{font-family:var(--serif);font-size:15px;margin-bottom:4px}
-  .pill-mini .pm-tag{font-size:11px;color:var(--text-tertiary);font-weight:300}
-  .pill-mini:nth-child(1){border-top:2px solid var(--copper)}
-  .pill-mini:nth-child(2){border-top:2px solid var(--emerald)}
-  .pill-mini:nth-child(3){border-top:2px solid var(--cream)}
+    a {
+      text-decoration: none;
+      color: inherit
+    }
 
-  /* TIER MINI */
-  .tiers-row{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:20px;margin-bottom:14px}
-  .tier-mini{background:var(--bg-elevated);padding:20px 16px;text-align:center}
-  .tier-mini .tm-price{font-family:var(--serif);font-size:20px;color:var(--copper-light);margin-bottom:4px}
-  .tier-mini .tm-name{font-size:12px;color:var(--cream);font-weight:400}
-  .tier-mini.featured{border-top:2px solid var(--copper)}
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 24px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(11, 11, 14, 0.92);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-subtle)
+    }
 
-  /* PROCESS STEPS */
-  .process-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:20px}
-  .p-step{background:var(--bg-elevated);padding:20px;position:relative}
-  .p-step .ps-num{font-family:var(--mono);font-size:9px;color:var(--copper);letter-spacing:0.15em;margin-bottom:8px}
-  .p-step .ps-name{font-family:var(--serif);font-size:15px;margin-bottom:6px;color:var(--cream-bright)}
-  .p-step .ps-desc{font-size:11px;color:var(--text-secondary);line-height:1.6;font-weight:300}
+    .nav-logo {
+      font-family: var(--serif);
+      font-size: 22px;
+      color: var(--copper)
+    }
 
-  /* CONFIG PREVIEW MINI */
-  .config-mini{background:var(--bg-card);border:1px solid var(--border-subtle);padding:32px;max-width:420px;margin-top:20px;position:relative;overflow:hidden}
-  .config-mini::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,var(--copper),var(--emerald))}
-  .config-mini .cm-q{font-family:var(--serif);font-size:18px;margin-bottom:16px;color:var(--cream-bright)}
-  .config-mini .cm-opt{background:var(--bg-elevated);border:1px solid var(--border-subtle);padding:10px 14px;margin-bottom:6px;font-size:12px;color:var(--text-secondary);font-weight:300}
-  .config-mini .cm-opt.sel{border-color:var(--copper);background:var(--copper-surface);color:var(--cream)}
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      align-items: center
+    }
 
-  /* DIVIDER */
-  .section-divider{height:1px;background:linear-gradient(90deg,transparent,var(--copper),transparent);margin:80px 60px;opacity:0.3}
+    .nav-links a {
+      font-family: var(--sans);
+      font-size: 11px;
+      color: var(--text-tertiary);
+      letter-spacing: 0.06em;
+      transition: color 0.3s
+    }
 
-  /* CLOSING */
-  .closing{padding:140px 60px;text-align:center;position:relative;border-top:1px solid var(--border-subtle)}
-  .closing::before{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:600px;height:400px;background:radial-gradient(ellipse,rgba(192,154,107,0.04) 0%,transparent 70%);pointer-events:none}
-  .closing h2{font-family:var(--serif);font-size:clamp(36px,5vw,64px);line-height:1.1;margin-bottom:24px;position:relative;z-index:2}
-  .closing h2 em{font-style:italic;color:var(--copper)}
-  .closing .closing-sub{font-size:15px;color:var(--text-secondary);font-weight:300;line-height:1.8;max-width:480px;margin:0 auto 48px;position:relative;z-index:2}
-  .closing-cta{display:inline-flex;align-items:center;gap:14px;background:var(--copper);color:var(--bg);padding:16px 40px;font-family:var(--mono);font-size:11px;letter-spacing:0.15em;text-transform:uppercase;text-decoration:none;font-weight:500;transition:all 0.3s ease;position:relative;z-index:2}
-  .closing-cta:hover{background:var(--copper-light);box-shadow:0 0 40px var(--copper-glow);transform:translateY(-2px)}
+    .nav-links a:hover {
+      color: var(--cream)
+    }
 
-  /* FOOTER */
-  footer{padding:28px 60px;border-top:1px solid var(--border-subtle);display:flex;justify-content:space-between;align-items:center}
-  footer span{font-family:var(--mono);font-size:10px;color:var(--text-tertiary);letter-spacing:0.1em}
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 140px 60px 100px;
+      position: relative;
+      overflow: hidden
+    }
 
-  /* REVEAL */
-  .reveal{opacity:0;transform:translateY(24px);transition:opacity 0.7s ease,transform 0.7s ease}
-  .reveal.visible{opacity:1;transform:translateY(0)}
-  @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -30%;
+      right: -15%;
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(circle, rgba(192, 154, 107, 0.04) 0%, transparent 65%);
+      pointer-events: none
+    }
 
-  /* RESPONSIVE */
-  @media(max-width:1024px){
-    nav{padding:20px 40px}.hero{padding:120px 40px 80px}.s{padding:80px 40px}
-    .beliefs{grid-template-columns:repeat(2,1fr)}.funnel{grid-template-columns:repeat(2,1fr)}
-    .sec-card{grid-template-columns:1fr;gap:16px}.tiers-row{grid-template-columns:repeat(2,1fr)}
-    .process-steps{grid-template-columns:repeat(2,1fr)}.section-divider{margin:60px 40px}
-    .closing{padding:100px 40px}footer{padding:24px 40px}
-  }
-  @media(max-width:680px){
-    nav{padding:16px 24px}.nav-links{display:none}.hero{padding:100px 24px 60px}.s{padding:64px 24px}
-    .hero-meta{flex-wrap:wrap;gap:24px}.beliefs{grid-template-columns:1fr}.funnel{grid-template-columns:1fr}
-    .pillars-row{grid-template-columns:1fr}.tiers-row{grid-template-columns:1fr}
-    .process-steps{grid-template-columns:1fr}.section-divider{margin:48px 24px}
-    .page-header{flex-direction:column;gap:4px}.page-num-large{font-size:60px}
-    .closing{padding:80px 24px}footer{padding:20px 24px;flex-direction:column;gap:8px}
-  }
-</style>
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -20%;
+      left: -10%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(192, 154, 107, 0.03) 0%, transparent 65%);
+      pointer-events: none
+    }
+
+    .hero-tag {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--copper);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 36px;
+      opacity: 0;
+      animation: fadeUp 0.7s ease forwards 0.2s
+    }
+
+    .hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(44px, 6.5vw, 86px);
+      line-height: 1.08;
+      max-width: 750px;
+      opacity: 0;
+      animation: fadeUp 0.7s ease forwards 0.4s
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--copper)
+    }
+
+    .hero-sub {
+      font-size: 16px;
+      color: var(--text-secondary);
+      font-weight: 300;
+      line-height: 1.8;
+      max-width: 500px;
+      margin-top: 32px;
+      opacity: 0;
+      animation: fadeUp 0.7s ease forwards 0.6s
+    }
+
+    .hero-meta {
+      margin-top: 56px;
+      display: flex;
+      gap: 48px;
+      opacity: 0;
+      animation: fadeUp 0.7s ease forwards 0.8s
+    }
+
+    .hero-meta-item {
+      display: flex;
+      flex-direction: column;
+      gap: 6px
+    }
+
+    .hero-meta-item .label {
+      font-family: var(--mono);
+      font-size: 9px;
+      color: var(--text-tertiary);
+      letter-spacing: 0.2em;
+      text-transform: uppercase
+    }
+
+    .hero-meta-item .value {
+      font-size: 14px;
+      color: var(--cream);
+      font-weight: 500
+    }
+
+    .hero-divider {
+      position: absolute;
+      bottom: 0;
+      left: 60px;
+      right: 60px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border-medium), transparent)
+    }
+
+    /* SECTIONS */
+    .s {
+      padding: 100px 60px;
+      position: relative
+    }
+
+    .s+.s {
+      border-top: 1px solid var(--border-subtle)
+    }
+
+    .s-label {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--copper);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 16px
+    }
+
+    .s-title {
+      font-family: var(--serif);
+      font-size: clamp(30px, 4vw, 52px);
+      line-height: 1.1;
+      margin-bottom: 20px
+    }
+
+    .s-title em {
+      font-style: italic;
+      color: var(--copper)
+    }
+
+    .s-sub {
+      font-size: 14px;
+      color: var(--text-secondary);
+      font-weight: 300;
+      line-height: 1.8;
+      max-width: 540px;
+      margin-bottom: 48px
+    }
+
+    .s-center {
+      text-align: center
+    }
+
+    .s-center .s-sub {
+      margin-left: auto;
+      margin-right: auto
+    }
+
+    /* VISITOR BELIEFS */
+    .beliefs {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+      margin-bottom: 56px
+    }
+
+    .belief {
+      background: var(--bg-card);
+      padding: 32px 28px;
+      transition: background 0.35s
+    }
+
+    .belief:hover {
+      background: var(--bg-elevated)
+    }
+
+    .belief .b-num {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--copper);
+      letter-spacing: 0.15em;
+      margin-bottom: 14px
+    }
+
+    .belief p {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      font-weight: 300
+    }
+
+    .belief p strong {
+      color: var(--cream-bright);
+      font-weight: 500
+    }
+
+    /* FUNNEL FLOW */
+    .funnel {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+      margin-top: 48px
+    }
+
+    .funnel-step {
+      background: var(--bg-card);
+      padding: 36px 28px;
+      position: relative;
+      transition: background 0.35s
+    }
+
+    .funnel-step:hover {
+      background: var(--bg-elevated)
+    }
+
+    .funnel-step::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      opacity: 0;
+      transition: opacity 0.35s
+    }
+
+    .funnel-step:nth-child(1)::before {
+      background: var(--copper)
+    }
+
+    .funnel-step:nth-child(2)::before {
+      background: var(--emerald)
+    }
+
+    .funnel-step:nth-child(3)::before {
+      background: var(--copper-light)
+    }
+
+    .funnel-step:nth-child(4)::before {
+      background: var(--cream)
+    }
+
+    .funnel-step:hover::before {
+      opacity: 1
+    }
+
+    .funnel-step .f-page {
+      font-family: var(--mono);
+      font-size: 9px;
+      color: var(--text-tertiary);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 12px
+    }
+
+    .funnel-step h4 {
+      font-family: var(--serif);
+      font-size: 20px;
+      margin-bottom: 8px;
+      color: var(--cream-bright)
+    }
+
+    .funnel-step .f-job {
+      font-size: 13px;
+      color: var(--copper);
+      font-weight: 400;
+      margin-bottom: 14px;
+      font-style: italic
+    }
+
+    .funnel-step p {
+      font-size: 12px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      font-weight: 300
+    }
+
+    /* PAGE DETAIL BLOCKS */
+    .page-detail {
+      margin-bottom: 2px;
+      border-top: 1px solid var(--border-subtle);
+      padding-top: 80px
+    }
+
+    .page-header {
+      display: flex;
+      align-items: baseline;
+      gap: 20px;
+      margin-bottom: 12px
+    }
+
+    .page-num-large {
+      font-family: var(--serif);
+      font-size: clamp(48px, 8vw, 100px);
+      color: var(--bg-elevated);
+      line-height: 1;
+      font-weight: 400;
+      letter-spacing: -0.03em
+    }
+
+    .page-name {
+      font-family: var(--serif);
+      font-size: clamp(28px, 3.5vw, 44px)
+    }
+
+    .page-intent {
+      font-size: 14px;
+      color: var(--text-secondary);
+      font-weight: 300;
+      line-height: 1.8;
+      max-width: 560px;
+      margin-bottom: 48px
+    }
+
+    /* SECTION CARDS */
+    .section-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      margin-bottom: 60px
+    }
+
+    .sec-card {
+      background: var(--bg-card);
+      padding: 36px 40px;
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 40px;
+      transition: background 0.35s
+    }
+
+    .sec-card:hover {
+      background: var(--bg-elevated)
+    }
+
+    .sec-card .sc-name {
+      font-family: var(--serif);
+      font-size: 18px;
+      color: var(--cream-bright);
+      margin-bottom: 6px
+    }
+
+    .sec-card .sc-intent {
+      font-family: var(--mono);
+      font-size: 9px;
+      color: var(--copper);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 4px
+    }
+
+    .sec-card .sc-belief {
+      font-size: 12px;
+      color: var(--text-tertiary);
+      font-style: italic;
+      line-height: 1.5
+    }
+
+    .sec-card .sc-content {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      font-weight: 300
+    }
+
+    .sec-card .sc-content strong {
+      color: var(--cream);
+      font-weight: 500
+    }
+
+    .sec-card .sc-content em {
+      font-style: italic;
+      color: var(--copper);
+      font-weight: 400
+    }
+
+    .sc-list {
+      margin-top: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px
+    }
+
+    .sc-list li {
+      font-size: 12px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      font-weight: 300;
+      padding-left: 16px;
+      position: relative;
+      list-style: none
+    }
+
+    .sc-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 7px;
+      width: 4px;
+      height: 4px;
+      background: var(--copper);
+      border-radius: 1px
+    }
+
+    .sc-note {
+      margin-top: 14px;
+      font-size: 11px;
+      color: var(--text-tertiary);
+      font-style: italic;
+      padding-left: 14px;
+      border-left: 2px solid var(--border-subtle)
+    }
+
+    /* CONNECTION ARROWS */
+    .connects {
+      margin-top: 14px;
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--emerald);
+      letter-spacing: 0.05em
+    }
+
+    /* PILLARS MINI */
+    .pillars-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      margin-top: 20px;
+      margin-bottom: 14px
+    }
+
+    .pill-mini {
+      background: var(--bg-elevated);
+      padding: 16px 20px;
+      text-align: center
+    }
+
+    .pill-mini .pm-name {
+      font-family: var(--serif);
+      font-size: 15px;
+      margin-bottom: 4px
+    }
+
+    .pill-mini .pm-tag {
+      font-size: 11px;
+      color: var(--text-tertiary);
+      font-weight: 300
+    }
+
+    .pill-mini:nth-child(1) {
+      border-top: 2px solid var(--copper)
+    }
+
+    .pill-mini:nth-child(2) {
+      border-top: 2px solid var(--emerald)
+    }
+
+    .pill-mini:nth-child(3) {
+      border-top: 2px solid var(--cream)
+    }
+
+    /* TIER MINI */
+    .tiers-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+      margin-top: 20px;
+      margin-bottom: 14px
+    }
+
+    .tier-mini {
+      background: var(--bg-elevated);
+      padding: 20px 16px;
+      text-align: center
+    }
+
+    .tier-mini .tm-price {
+      font-family: var(--serif);
+      font-size: 20px;
+      color: var(--copper-light);
+      margin-bottom: 4px
+    }
+
+    .tier-mini .tm-name {
+      font-size: 12px;
+      color: var(--cream);
+      font-weight: 400
+    }
+
+    .tier-mini.featured {
+      border-top: 2px solid var(--copper)
+    }
+
+    /* PROCESS STEPS */
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+      margin-top: 20px
+    }
+
+    .p-step {
+      background: var(--bg-elevated);
+      padding: 20px;
+      position: relative
+    }
+
+    .p-step .ps-num {
+      font-family: var(--mono);
+      font-size: 9px;
+      color: var(--copper);
+      letter-spacing: 0.15em;
+      margin-bottom: 8px
+    }
+
+    .p-step .ps-name {
+      font-family: var(--serif);
+      font-size: 15px;
+      margin-bottom: 6px;
+      color: var(--cream-bright)
+    }
+
+    .p-step .ps-desc {
+      font-size: 11px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      font-weight: 300
+    }
+
+    /* CONFIG PREVIEW MINI */
+    .config-mini {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      padding: 32px;
+      max-width: 420px;
+      margin-top: 20px;
+      position: relative;
+      overflow: hidden
+    }
+
+    .config-mini::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, var(--copper), var(--emerald))
+    }
+
+    .config-mini .cm-q {
+      font-family: var(--serif);
+      font-size: 18px;
+      margin-bottom: 16px;
+      color: var(--cream-bright)
+    }
+
+    .config-mini .cm-opt {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-subtle);
+      padding: 10px 14px;
+      margin-bottom: 6px;
+      font-size: 12px;
+      color: var(--text-secondary);
+      font-weight: 300
+    }
+
+    .config-mini .cm-opt.sel {
+      border-color: var(--copper);
+      background: var(--copper-surface);
+      color: var(--cream)
+    }
+
+    /* DIVIDER */
+    .section-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--copper), transparent);
+      margin: 80px 60px;
+      opacity: 0.3
+    }
+
+    /* CLOSING */
+    .closing {
+      padding: 140px 60px;
+      text-align: center;
+      position: relative;
+      border-top: 1px solid var(--border-subtle)
+    }
+
+    .closing::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      height: 400px;
+      background: radial-gradient(ellipse, rgba(192, 154, 107, 0.04) 0%, transparent 70%);
+      pointer-events: none
+    }
+
+    .closing h2 {
+      font-family: var(--serif);
+      font-size: clamp(36px, 5vw, 64px);
+      line-height: 1.1;
+      margin-bottom: 24px;
+      position: relative;
+      z-index: 2
+    }
+
+    .closing h2 em {
+      font-style: italic;
+      color: var(--copper)
+    }
+
+    .closing .closing-sub {
+      font-size: 15px;
+      color: var(--text-secondary);
+      font-weight: 300;
+      line-height: 1.8;
+      max-width: 480px;
+      margin: 0 auto 48px;
+      position: relative;
+      z-index: 2
+    }
+
+    .closing-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      background: var(--copper);
+      color: var(--bg);
+      padding: 16px 40px;
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      position: relative;
+      z-index: 2
+    }
+
+    .closing-cta:hover {
+      background: var(--copper-light);
+      box-shadow: 0 0 40px var(--copper-glow);
+      transform: translateY(-2px)
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 28px 60px;
+      border-top: 1px solid var(--border-subtle);
+      display: flex;
+      justify-content: space-between;
+      align-items: center
+    }
+
+    footer span {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--text-tertiary);
+      letter-spacing: 0.1em
+    }
+
+    /* REVEAL */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0)
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    /* RESPONSIVE */
+    @media(max-width:1024px) {
+      nav {
+        padding: 20px 40px
+      }
+
+      .hero {
+        padding: 120px 40px 80px
+      }
+
+      .s {
+        padding: 80px 40px
+      }
+
+      .beliefs {
+        grid-template-columns: repeat(2, 1fr)
+      }
+
+      .funnel {
+        grid-template-columns: repeat(2, 1fr)
+      }
+
+      .sec-card {
+        grid-template-columns: 1fr;
+        gap: 16px
+      }
+
+      .tiers-row {
+        grid-template-columns: repeat(2, 1fr)
+      }
+
+      .process-steps {
+        grid-template-columns: repeat(2, 1fr)
+      }
+
+      .section-divider {
+        margin: 60px 40px
+      }
+
+      .closing {
+        padding: 100px 40px
+      }
+
+      footer {
+        padding: 24px 40px
+      }
+    }
+
+    @media(max-width:680px) {
+      nav {
+        padding: 16px 24px
+      }
+
+      .nav-links {
+        display: none
+      }
+
+      .hero {
+        padding: 100px 24px 60px
+      }
+
+      .s {
+        padding: 64px 24px
+      }
+
+      .hero-meta {
+        flex-wrap: wrap;
+        gap: 24px
+      }
+
+      .beliefs {
+        grid-template-columns: 1fr
+      }
+
+      .funnel {
+        grid-template-columns: 1fr
+      }
+
+      .pillars-row {
+        grid-template-columns: 1fr
+      }
+
+      .tiers-row {
+        grid-template-columns: 1fr
+      }
+
+      .process-steps {
+        grid-template-columns: 1fr
+      }
+
+      .section-divider {
+        margin: 48px 24px
+      }
+
+      .page-header {
+        flex-direction: column;
+        gap: 4px
+      }
+
+      .page-num-large {
+        font-size: 60px
+      }
+
+      .closing {
+        padding: 80px 24px
+      }
+
+      footer {
+        padding: 20px 24px;
+        flex-direction: column;
+        gap: 8px
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<div class="progress" id="progress"></div>
+  <div class="progress" id="progress"></div>
 
-<nav>
-  <div class="nav-logo">BA</div>
-  <div class="nav-links">
-    <a href="#overview">Overview</a>
-    <a href="#pages">Pages</a>
-    <a href="#connections">Flow</a>
-  </div>
-</nav>
-
-<!-- ═══ HERO ═══ -->
-<div class="hero">
-  <div class="hero-tag">Complete Site Blueprint — BA Digi Marketing</div>
-  <h1>Your Site Will Be Your Best <em>Portfolio Piece.</em></h1>
-  <p class="hero-sub">This document maps the complete vision, architecture, strategy, and content for the BA Digi Marketing website. Every page. Every section. Every word — and why it's there.</p>
-  <div class="hero-meta">
-    <div class="hero-meta-item"><span class="label">Pages</span><span class="value">4</span></div>
-    <div class="hero-meta-item"><span class="label">Aesthetic</span><span class="value">Dark Cinematic</span></div>
-    <div class="hero-meta-item"><span class="label">Core Idea</span><span class="value">The site IS the portfolio</span></div>
-    <div class="hero-meta-item"><span class="label">Stack</span><span class="value">React + TypeScript</span></div>
-  </div>
-  <div class="hero-divider"></div>
-</div>
-
-<!-- ═══ STRATEGIC IDEA ═══ -->
-<section class="s" id="overview">
-  <div class="s-label reveal">The Strategic Idea</div>
-  <div class="s-title reveal" style="max-width:640px">If their own site looks this good, <em>imagine what they'd build for you.</em></div>
-  <p class="s-sub reveal">Most marketing agency websites claim creativity but look identical. BA Digi's site silently demonstrates capability through its own execution. Every pixel is proof of craft. Seven services grouped into three pillars that tell one story: <strong style="color:var(--cream-bright)">Build it. Grow it. Launch it.</strong></p>
-</section>
-
-<!-- ═══ WHAT VISITORS MUST BELIEVE ═══ -->
-<section class="s">
-  <div class="s-label reveal">Visitor Psychology</div>
-  <div class="s-title reveal">Four Beliefs Before They Pay</div>
-  <p class="s-sub reveal">Every visitor lands with skepticism. Within 60 seconds, the site must advance these four beliefs. If a section doesn't serve one of them, it doesn't belong.</p>
-  <div class="beliefs">
-    <div class="belief reveal"><div class="b-num">01</div><p><strong>They're good at what they do.</strong> The site itself proves this — the design, the interactions, the information architecture. Capability demonstrated, not claimed.</p></div>
-    <div class="belief reveal"><div class="b-num">02</div><p><strong>They have a structured approach.</strong> Not making it up as they go. Three pillars, clear process, defined methodology. This is a studio, not a freelancer.</p></div>
-    <div class="belief reveal"><div class="b-num">03</div><p><strong>Their pricing is clear and within reach.</strong> No "contact us for a quote" mystery. Tiers are visible, transparent, and structured. The visitor can self-qualify.</p></div>
-    <div class="belief reveal"><div class="b-num">04</div><p><strong>Getting started is simple and low-pressure.</strong> Multiple contact paths, no hard sell, configurator quiz for the undecided. The door is open, not guarded.</p></div>
-  </div>
-</section>
-
-<!-- ═══ SITE ARCHITECTURE ═══ -->
-<section class="s">
-  <div class="s-label reveal">Site Architecture</div>
-  <div class="s-title reveal">Four Pages. Each With a Job.</div>
-  <p class="s-sub reveal">Every page advances the argument. No filler. A structured funnel that moves visitors from curiosity to conversion.</p>
-  <div class="funnel">
-    <div class="funnel-step reveal">
-      <div class="f-page">Page 01</div>
-      <h4>Home</h4>
-      <div class="f-job">The Hook</div>
-      <p>Makes the visitor stay. Demonstrates capability within 5 seconds. Previews everything — pillars, proof, packages — but goes deep on none. Creates doors to the other three pages.</p>
+  <nav>
+    <div class="nav-logo">BA</div>
+    <div class="nav-links">
+      <a href="#overview">Overview</a>
+      <a href="#pages">Pages</a>
+      <a href="#connections">Flow</a>
     </div>
-    <div class="funnel-step reveal">
-      <div class="f-page">Page 02</div>
-      <h4>Services</h4>
-      <div class="f-job">The Depth</div>
-      <p>Answers "can you do what I specifically need?" Walks through Build, Grow, Launch with enough detail to feel comprehensive. Shows the process — how BA Digi works start to finish.</p>
+  </nav>
+
+  <!-- ═══ HERO ═══ -->
+  <div class="hero">
+    <div class="hero-tag">Complete Site Blueprint — BA Digi Marketing</div>
+    <h1>Your Site Will Be Your Best <em>Portfolio Piece.</em></h1>
+    <p class="hero-sub">This document maps the complete vision, architecture, strategy, and content for the BA Digi
+      Marketing website. Every page. Every section. Every word — and why it's there.</p>
+    <div class="hero-meta">
+      <div class="hero-meta-item"><span class="label">Pages</span><span class="value">4</span></div>
+      <div class="hero-meta-item"><span class="label">Aesthetic</span><span class="value">Dark Cinematic</span></div>
+      <div class="hero-meta-item"><span class="label">Core Idea</span><span class="value">The site IS the
+          portfolio</span></div>
+      <div class="hero-meta-item"><span class="label">Stack</span><span class="value">React + TypeScript</span></div>
     </div>
-    <div class="funnel-step reveal">
-      <div class="f-page">Page 03</div>
-      <h4>Packages</h4>
-      <div class="f-job">The Decision</div>
-      <p>Where browsing becomes buying. Clear tiers, clear pricing, clear scope. The configurator quiz helps the undecided find their tier and captures lead data before they even reach Contact.</p>
-    </div>
-    <div class="funnel-step reveal">
-      <div class="f-page">Page 04</div>
-      <h4>Contact</h4>
-      <div class="f-job">The Conversion</div>
-      <p>By now, they've decided to talk. Zero friction. Email, phone, WhatsApp, form. Configurator context pre-filled. The page feels like opening a door, not filling out an application.</p>
-    </div>
+    <div class="hero-divider"></div>
   </div>
-</section>
 
-<div class="section-divider"></div>
+  <!-- ═══ STRATEGIC IDEA ═══ -->
+  <section class="s" id="overview">
+    <div class="s-label reveal">The Strategic Idea</div>
+    <div class="s-title reveal" style="max-width:640px">If their own site looks this good, <em>imagine what they'd build
+        for you.</em></div>
+    <p class="s-sub reveal">Most marketing agency websites claim creativity but look identical. BA Digi's site silently
+      demonstrates capability through its own execution. Every pixel is proof of craft. Nine services grouped into three
+      pillars that tell one story: <strong style="color:var(--cream-bright)">Design it. Build it. Scale it.</strong></p>
+  </section>
 
-<!-- ═══════════════════════════════════════════ -->
-<!-- PAGE 1: HOME -->
-<!-- ═══════════════════════════════════════════ -->
-<section class="s" id="pages">
-  <div class="page-detail">
-    <div class="page-header reveal"><div class="page-num-large">01</div><div class="page-name">Home</div></div>
-    <p class="page-intent reveal">The showpiece. One job: make the visitor stay. It doesn't sell — it demonstrates. The emotional arc: <strong style="color:var(--cream-bright)">Impress → Educate → Prove → Differentiate → Tease → Convert.</strong></p>
-
-    <div class="section-cards">
-      <!-- Hero -->
-      <div class="sec-card reveal">
-        <div>
-          <div class="sc-intent">Section 1</div>
-          <div class="sc-name">Hero</div>
-          <div class="sc-belief">"This agency is different — polished, confident, clearly good at design."</div>
-        </div>
-        <div class="sc-content">
-          <strong>Headline:</strong> "Digital Marketing & Creative Services <em>Built to Perform.</em>" — not generic "We're a creative agency."<br><br>
-          <strong>Subtext:</strong> "Website development, marketing campaigns, and creative design — engineered for businesses that take growth seriously."<br><br>
-          <strong>Two CTAs:</strong> "Get a Proposal" (copper, primary — ready buyer) and "View Packages" (outlined — researcher).<br><br>
-          <strong>Trust bar:</strong> Three micro-promises: ◆ Strategy-first approach · ◆ Transparent pricing · ◆ End-to-end delivery.<br><br>
-          <strong>Visual element (right side):</strong> 2–3 overlapping dark browser frames at slight angles showing premium websites — built with CSS, not images. Silently says "we build websites."
-          <div class="connects">→ Connects to: Pillars section below — hero makes them curious, pillars explain the methodology.</div>
-        </div>
+  <!-- ═══ WHAT VISITORS MUST BELIEVE ═══ -->
+  <section class="s">
+    <div class="s-label reveal">Visitor Psychology</div>
+    <div class="s-title reveal">Four Beliefs Before They Pay</div>
+    <p class="s-sub reveal">Every visitor lands with skepticism. Within 60 seconds, the site must advance these four
+      beliefs. If a section doesn't serve one of them, it doesn't belong.</p>
+    <div class="beliefs">
+      <div class="belief reveal">
+        <div class="b-num">01</div>
+        <p><strong>They're good at what they do.</strong> The site itself proves this — the design, the interactions,
+          the information architecture. Capability demonstrated, not claimed.</p>
       </div>
+      <div class="belief reveal">
+        <div class="b-num">02</div>
+        <p><strong>They have a structured approach.</strong> Not making it up as they go. Three pillars, clear process,
+          defined methodology. This is a studio, not a freelancer.</p>
+      </div>
+      <div class="belief reveal">
+        <div class="b-num">03</div>
+        <p><strong>Their pricing is clear and within reach.</strong> No "contact us for a quote" mystery. Tiers are
+          visible, transparent, and structured. The visitor can self-qualify.</p>
+      </div>
+      <div class="belief reveal">
+        <div class="b-num">04</div>
+        <p><strong>Getting started is simple and low-pressure.</strong> Multiple contact paths, no hard sell,
+          configurator quiz for the undecided. The door is open, not guarded.</p>
+      </div>
+    </div>
+  </section>
 
-      <!-- Pillars -->
-      <div class="sec-card reveal">
-        <div>
-          <div class="sc-intent">Section 2</div>
-          <div class="sc-name">The Three Pillars</div>
-          <div class="sc-belief">"They have a structured methodology: Build, Grow, Launch."</div>
-        </div>
-        <div class="sc-content">
-          <strong>Intro:</strong> "One Agency. Three Disciplines." — "From the first pixel to the last campaign report."<br><br>
-          Three tall cards side by side, each with a colored accent line:
-          <div class="pillars-row">
-            <div class="pill-mini"><div class="pm-name">Build</div><div class="pm-tag">Create the assets</div></div>
-            <div class="pill-mini"><div class="pm-name">Grow</div><div class="pm-tag">Drive the results</div></div>
-            <div class="pill-mini"><div class="pm-name">Launch</div><div class="pm-tag">Orchestrate the play</div></div>
+  <!-- ═══ SITE ARCHITECTURE ═══ -->
+  <section class="s">
+    <div class="s-label reveal">Site Architecture</div>
+    <div class="s-title reveal">Four Pages. Each With a Job.</div>
+    <p class="s-sub reveal">Every page advances the argument. No filler. A structured funnel that moves visitors from
+      curiosity to conversion.</p>
+    <div class="funnel">
+      <div class="funnel-step reveal">
+        <div class="f-page">Page 01</div>
+        <h4>Home</h4>
+        <div class="f-job">The Hook</div>
+        <p>Makes the visitor stay. Demonstrates capability within 5 seconds. Previews everything — pillars, proof,
+          packages — but goes deep on none. Creates doors to the other three pages.</p>
+      </div>
+      <div class="funnel-step reveal">
+        <div class="f-page">Page 02</div>
+        <h4>Services</h4>
+        <div class="f-job">The Depth</div>
+        <p>Answers "can you do what I specifically need?" Walks through Design, Build, Scale with enough detail to feel
+          comprehensive. Also features a full Campaign Delivery spotlight card. Shows the process — how BA Digi works
+          start to finish.</p>
+      </div>
+      <div class="funnel-step reveal">
+        <div class="f-page">Page 03</div>
+        <h4>Packages</h4>
+        <div class="f-job">The Decision</div>
+        <p>Where browsing becomes buying. Clear tiers, clear pricing, clear scope. The configurator quiz helps the
+          undecided find their tier and captures lead data before they even reach Contact.</p>
+      </div>
+      <div class="funnel-step reveal">
+        <div class="f-page">Page 04</div>
+        <h4>Contact</h4>
+        <div class="f-job">The Conversion</div>
+        <p>By now, they've decided to talk. Zero friction. Email, phone, WhatsApp, form. Configurator context
+          pre-filled. The page feels like opening a door, not filling out an application.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- PAGE 1: HOME -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section class="s" id="pages">
+    <div class="page-detail">
+      <div class="page-header reveal">
+        <div class="page-num-large">01</div>
+        <div class="page-name">Home</div>
+      </div>
+      <p class="page-intent reveal">The showpiece. One job: make the visitor stay. It doesn't sell — it demonstrates.
+        The emotional arc: <strong style="color:var(--cream-bright)">Impress → Educate → Prove → Differentiate → Tease →
+          Convert.</strong></p>
+
+      <div class="section-cards">
+        <!-- Hero -->
+        <div class="sec-card reveal">
+          <div>
+            <div class="sc-intent">Section 1</div>
+            <div class="sc-name">Hero</div>
+            <div class="sc-belief">"This agency is different — polished, confident, clearly good at design."</div>
           </div>
-          Each card lists its 2–3 services beneath the tagline. Each links to its section on the Services page.
-          <div class="sc-note">Most agencies list services in a flat grid — "SEO, Web Design, PPC..." Grouping into pillars creates a journey, not a menu. The client thinks "they build it, grow it, then launch campaigns."</div>
-          <div class="connects">→ Connects to: Services page (deep dive) and Proof section below.</div>
-        </div>
-      </div>
-
-      <!-- Proof -->
-      <div class="sec-card reveal">
-        <div>
-          <div class="sc-intent">Section 3</div>
-          <div class="sc-name">Proof of Craft</div>
-          <div class="sc-belief">"Their work quality is visually evident — I can see it."</div>
-        </div>
-        <div class="sc-content">
-          A staggered grid of 4–6 work preview cards. Each card shows a type label ("Website", "Campaign", "Social", "Presentation") inside a dark styled frame with CSS texture. Not fake screenshots — the visual design of the cards themselves demonstrates capability.<br><br>
-          <strong>Closing line below:</strong> "Every project is a proof of concept. <em>For what we'd build for you.</em>"<br><br>
-          <strong>Small note:</strong> "Portfolio pieces added with your approval." — tells Daniel we need his work samples, without breaking the visitor's experience.
-          <div class="sc-note">The site itself IS the proof. Placeholder frames look intentional — like a gallery waiting for work. Real pieces get added as Daniel completes projects. The section is architecturally ready.</div>
-          <div class="connects">→ Connects to: Why BA Digi section — from "look at what we do" to "here's why we're different."</div>
-        </div>
-      </div>
-
-      <!-- Why -->
-      <div class="sec-card reveal">
-        <div>
-          <div class="sc-intent">Section 4</div>
-          <div class="sc-name">Why BA Digi</div>
-          <div class="sc-belief">"Working with them means clarity, structure, and focus."</div>
-        </div>
-        <div class="sc-content">
-          <strong>Two-column layout.</strong> Left: 4 differentiator rows —
-          <ul class="sc-list">
-            <li><strong>Strategy before execution.</strong> — We don't start building until the thinking is done.</li>
-            <li><strong>Transparent, structured pricing.</strong> — No hourly billing surprises. Packages are fixed.</li>
-            <li><strong>Full-stack delivery.</strong> — Design, development, marketing — one team, one relationship.</li>
-            <li><strong>Built for growth, not busywork.</strong> — We focus on work that moves the needle.</li>
-          </ul>
-          <strong>Right panel</strong> (dark elevated surface, copper left border): "We're not a freelancer marketplace. We're not a volume agency. We're a <em>focused creative studio</em> that builds things properly."
-          <div class="sc-note">The differentiators address the three fears every business owner has: "Will they waste my money?" (strategy first), "Will costs spiral?" (transparent pricing), "Will I manage multiple vendors?" (full-stack).</div>
-          <div class="connects">→ Connects to: Packages Preview — from "here's why we're different" to "here's what it costs."</div>
-        </div>
-      </div>
-
-      <!-- Packages Preview -->
-      <div class="sec-card reveal">
-        <div>
-          <div class="sc-intent">Section 5</div>
-          <div class="sc-name">Packages Preview</div>
-          <div class="sc-belief">"Their pricing is real and there's a tier for me."</div>
-        </div>
-        <div class="sc-content">
-          A teaser — four tier cards showing name, starting price, and one-liner. Not the full breakdown.
-          <div class="tiers-row">
-            <div class="tier-mini"><div class="tm-price">£3k</div><div class="tm-name">Starter</div></div>
-            <div class="tier-mini"><div class="tm-price">£5k</div><div class="tm-name">Growth</div></div>
-            <div class="tier-mini featured"><div class="tm-price">£10k</div><div class="tm-name">Premium</div></div>
-            <div class="tier-mini"><div class="tm-price">£20k</div><div class="tm-name">Enterprise</div></div>
+          <div class="sc-content">
+            <strong>Headline:</strong> "Digital Marketing & Creative Services <em>Built to Perform.</em>" — not generic
+            "We're a creative agency."<br><br>
+            <strong>Subtext:</strong> "Website development, marketing campaigns, and creative design — engineered for
+            businesses that take growth seriously."<br><br>
+            <strong>Two CTAs:</strong> "Get a Proposal" (copper, primary — ready buyer) and "View Packages" (outlined —
+            researcher).<br><br>
+            <strong>Trust bar:</strong> Three micro-promises: ◆ Strategy-first approach · ◆ Transparent pricing · ◆
+            End-to-end delivery.<br><br>
+            <strong>Visual element (right side):</strong> 2–3 overlapping dark browser frames at slight angles showing
+            premium websites — built with CSS, not images. Silently says "we build websites."
+            <div class="connects">→ Connects to: Pillars section below — hero makes them curious, pillars explain the
+              methodology.</div>
           </div>
-          Two links below: "See all packages →" and "Not sure? Get a recommendation →"
-          <div class="sc-note">The Home page's job is to get clicks to deeper pages. If you show the full pricing table here, there's no reason to visit the Packages page. The preview answers "is this in my range?" and creates curiosity for "what's included?"</div>
-          <div class="connects">→ Connects to: Packages page and Final CTA below.</div>
         </div>
-      </div>
 
-      <!-- CTA -->
-      <div class="sec-card reveal">
-        <div>
-          <div class="sc-intent">Section 6</div>
-          <div class="sc-name">Final CTA</div>
-          <div class="sc-belief">"I can reach out without committing — this feels approachable."</div>
-        </div>
-        <div class="sc-content">
-          <strong>Heading:</strong> "Ready to build something <em>that actually works?</em>"<br>
-          <strong>Subtext:</strong> "Tell us what you need. We'll tell you exactly what it costs and how we'd do it."<br><br>
-          Two buttons: "Get a Proposal" (copper) · "Book a Call" (outlined + phone icon)<br>
-          Below: "No commitment. No sales pressure. Just a clear conversation."<br>
-          Trust bar repeated from hero — reinforces positioning at the moment of decision.
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="section-divider"></div>
-
-<!-- ═══════════════════════════════════════════ -->
-<!-- PAGE 2: SERVICES -->
-<!-- ═══════════════════════════════════════════ -->
-<section class="s">
-  <div class="page-detail">
-    <div class="page-header reveal"><div class="page-num-large">02</div><div class="page-name">Services</div></div>
-    <p class="page-intent reveal">The depth page. Answers "can you do what I specifically need?" Arc: <strong style="color:var(--cream-bright)">Orient → Deep Dive × 3 → Process → Convert.</strong></p>
-
-    <div class="section-cards">
-      <div class="sec-card reveal">
-        <div><div class="sc-intent">Section 1</div><div class="sc-name">Hero</div></div>
-        <div class="sc-content">
-          Shorter hero — 60–70vh, centered. Heading: <strong>"Build. Grow. Launch."</strong> — each word on its own line, in its pillar color (copper, emerald, cream). Large, bold, immediate orientation.<br>
-          Subtext: "Three disciplines. One infrastructure. Every project follows this logic."
-        </div>
-      </div>
-
-      <div class="sec-card reveal">
-        <div><div class="sc-intent">Section 2</div><div class="sc-name">BUILD Pillar</div><div class="sc-belief">"They create digital assets with craft and intentionality."</div></div>
-        <div class="sc-content">
-          Copper accent label. Heading: "We Create the Assets." Three service cards side by side:
-          <ul class="sc-list">
-            <li><strong>Website Development</strong> — custom design, responsive, SEO foundations, performance optimized, CMS integration, analytics setup</li>
-            <li><strong>Graphic Design</strong> — brand identity, social media assets, advertising creatives, print materials, style guides</li>
-            <li><strong>Presentation Design</strong> — pitch decks, investor presentations, sales decks, corporate templates</li>
-          </ul>
-          Each card has an icon, description, and capabilities list showing specific deliverables.
-        </div>
-      </div>
-
-      <div class="sec-card reveal">
-        <div><div class="sc-intent">Section 3</div><div class="sc-name">GROW Pillar</div><div class="sc-belief">"Growth isn't guesswork — they use structured strategies."</div></div>
-        <div class="sc-content">
-          Emerald accent label. Heading: "We Drive the Results." Three service cards:
-          <ul class="sc-list">
-            <li><strong>Digital Marketing</strong> — strategy, content marketing, email campaigns, SEO, social media management, funnel design</li>
-            <li><strong>Online Advertising</strong> — Google Ads, Meta Ads, LinkedIn, retargeting, A/B testing, conversion tracking</li>
-            <li><strong>Traffic Generation</strong> — organic growth, referral systems, partnership-driven traffic, landing page optimisation</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="sec-card reveal">
-        <div><div class="sc-intent">Section 4</div><div class="sc-name">LAUNCH Pillar</div><div class="sc-belief">"Campaigns are coordinated strategic plays, not random ads."</div></div>
-        <div class="sc-content">
-          Cream accent label. Heading: "We Orchestrate the Full Play." <strong>Single deep card</strong> — not three. Campaigns are the culmination of Build + Grow working together.<br><br>
-          <strong>Marketing Campaigns:</strong> end-to-end strategy, creative development, multi-channel execution, budget management, performance tracking, post-campaign analysis.<br><br>
-          Visual: a campaign flow diagram — Strategy → Creative → Launch → Optimise → Report
-          <div class="sc-note">Presenting campaigns as one comprehensive offering — not three sub-services — positions it as the premium tier of what BA Digi does.</div>
-        </div>
-      </div>
-
-      <div class="sec-card reveal">
-        <div><div class="sc-intent">Section 5</div><div class="sc-name">How We Work</div><div class="sc-belief">"The process is clear, repeatable, and designed for client clarity."</div></div>
-        <div class="sc-content">
-          4-step horizontal timeline (desktop), vertical on mobile:
-          <div class="process-steps">
-            <div class="p-step"><div class="ps-num">01</div><div class="ps-name">Discovery</div><div class="ps-desc">We listen. Map the landscape before touching a pixel.</div></div>
-            <div class="p-step"><div class="ps-num">02</div><div class="ps-name">Strategy</div><div class="ps-desc">Define approach, channels, timeline, budget. You approve first.</div></div>
-            <div class="p-step"><div class="ps-num">03</div><div class="ps-name">Execution</div><div class="ps-desc">Build, launch, manage. Regular check-ins. Full visibility.</div></div>
-            <div class="p-step"><div class="ps-num">04</div><div class="ps-name">Results</div><div class="ps-desc">Measure, report, refine. Clear picture of what was achieved.</div></div>
+        <!-- Pillars -->
+        <div class="sec-card reveal">
+          <div>
+            <div class="sc-intent">Section 2</div>
+            <div class="sc-name">The Three Pillars</div>
+            <div class="sc-belief">"They have a structured methodology: Design, Build, Scale."</div>
           </div>
-          <div class="sc-note">Business owners burned by agencies love seeing a process. It says "we won't disappear after taking your money" without saying it.</div>
-        </div>
-      </div>
-
-      <div class="sec-card reveal">
-        <div><div class="sc-intent">Section 6</div><div class="sc-name">CTA</div></div>
-        <div class="sc-content">"Know what you need? Let's scope it." — Get a Proposal (copper) · View Packages (outlined).</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="section-divider"></div>
-
-<!-- ═══════════════════════════════════════════ -->
-<!-- PAGE 3: PACKAGES -->
-<!-- ═══════════════════════════════════════════ -->
-<section class="s">
-  <div class="page-detail">
-    <div class="page-header reveal"><div class="page-num-large">03</div><div class="page-name">Packages</div></div>
-    <p class="page-intent reveal">The decision page. Where browsing becomes buying. Arc: <strong style="color:var(--cream-bright)">Frame → Compare → Discover → Reassure → Convert.</strong></p>
-
-    <div class="section-cards">
-      <div class="sec-card reveal">
-        <div><div class="sc-intent">Section 1</div><div class="sc-name">Hero</div></div>
-        <div class="sc-content">
-          "Transparent Pricing. Structured Delivery." — "Every package is scoped, priced, and delivered with full clarity. No hourly surprises. No scope creep."
-        </div>
-      </div>
-
-      <div class="sec-card reveal">
-        <div><div class="sc-intent">Section 2</div><div class="sc-name">Tier Cards</div><div class="sc-belief">"There's a clear tier for my business size and need."</div></div>
-        <div class="sc-content">
-          4 detailed cards — more detail than the Home preview. Each card includes tier name, price, target audience, 4–5 bullet points of what's included, and a CTA button.
-          <ul class="sc-list">
-            <li><strong>Starter £3,000</strong> — small businesses, new brands. One core service. Foundation-level delivery.</li>
-            <li><strong>Growth £5,000</strong> — businesses ready to scale. Two combined services. Integrated delivery.</li>
-            <li><strong>Premium £10,000</strong> — established businesses. Full-stack: design + development + marketing. Highlighted as "Most Popular."</li>
-            <li><strong>Enterprise £20,000</strong> — large projects. Bespoke scope. Dedicated team. Ongoing management.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="sec-card reveal">
-        <div><div class="sc-intent">Section 3</div><div class="sc-name">Interactive Configurator</div><div class="sc-belief">"They'll recommend the right package for me in 60 seconds."</div></div>
-        <div class="sc-content">
-          5-step quiz in a dark panel with progress bar:
-          <div class="config-mini">
-            <div class="cm-q">What do you need?</div>
-            <div class="cm-opt">A new website</div>
-            <div class="cm-opt sel">Marketing & advertising</div>
-            <div class="cm-opt">Creative / design work</div>
-            <div class="cm-opt">A full campaign</div>
+          <div class="sc-content">
+            <strong>Intro:</strong> "One Agency. Three Disciplines." — "From the first pixel to the last campaign
+            report."<br><br>
+            Three tall cards side by side, each with a colored accent line:
+            <div class="pillars-row">
+              <div class="pill-mini">
+                <div class="pm-name">Design</div>
+                <div class="pm-tag">Shape the perception</div>
+              </div>
+              <div class="pill-mini">
+                <div class="pm-name">Build</div>
+                <div class="pm-tag">Engineer the foundation</div>
+              </div>
+              <div class="pill-mini">
+                <div class="pm-name">Scale</div>
+                <div class="pm-tag">Amplify what we build</div>
+              </div>
+            </div>
+            Each card lists its 3 services beneath the tagline. Each links to its section on the Services page.
+            <div class="sc-note">Most agencies list services in a flat grid — "SEO, Web Design, PPC..." Grouping into
+              pillars creates a journey, not a menu. The client thinks "they design it, build it, then scale it."</div>
+            <div class="connects">→ Connects to: Services page (deep dive) and Proof section below.</div>
           </div>
-          <br>Steps: What do you need → Business stage → Timeline → Budget range → Specific services (multi-select).<br><br>
-          <strong>Result:</strong> recommended tier with reasoning, what's included, and "Get a Proposal for This Package →" CTA that links to Contact with the package pre-selected.
-          <div class="sc-note">The configurator does three things simultaneously — helps the visitor, qualifies the lead, and demonstrates BA Digi's UX capability. "If they built this quiz this well, imagine what they'd build for my website."</div>
         </div>
-      </div>
 
-      <div class="sec-card reveal">
-        <div><div class="sc-intent">Section 4</div><div class="sc-name">What's Always Included</div></div>
-        <div class="sc-content">
-          4 cards: Dedicated point of contact · Clear project timeline · Full documentation · Post-delivery support. Standards that never change regardless of tier.
+        <!-- Proof -->
+        <div class="sec-card reveal">
+          <div>
+            <div class="sc-intent">Section 3</div>
+            <div class="sc-name">Proof of Craft</div>
+            <div class="sc-belief">"Their work quality is visually evident — I can see it."</div>
+          </div>
+          <div class="sc-content">
+            A staggered grid of 4 work preview cards. Each card shows <strong>[REDACTED]</strong> as the label inside a
+            dark styled frame with radial glow and CSS texture. Not fake screenshots — the atmospheric design of the
+            cards themselves demonstrates capability.<br><br>
+            <strong>Note below the cards:</strong> "We don't publish client work without permission. <strong>The same
+              discretion we'd extend to you.</strong>"
+            <div class="sc-note">The emptiness is intentional — reframed as professionalism, not absence. The [REDACTED]
+              label signals: "we respect client confidentiality." That's a trust signal for every new client who sees
+              it. Real pieces get added as projects complete with approval.</div>
+            <div class="connects">→ Connects to: Why BA Digi section — from "look at what we do" to "here's why we're
+              different."</div>
+          </div>
         </div>
-      </div>
 
-      <div class="sec-card reveal">
-        <div><div class="sc-intent">Section 5</div><div class="sc-name">FAQ</div></div>
-        <div class="sc-content">
-          Accordion — 5–6 questions: Can I customise? What if my needs don't fit a tier? Typical timelines? Payment terms? Post-delivery support? Can I add services later?
+        <!-- Why -->
+        <div class="sec-card reveal">
+          <div>
+            <div class="sc-intent">Section 4</div>
+            <div class="sc-name">Why BA Digi</div>
+            <div class="sc-belief">"Working with them means clarity, structure, and focus."</div>
+          </div>
+          <div class="sc-content">
+            <strong>Two-column layout.</strong> Left: 4 differentiator rows —
+            <ul class="sc-list">
+              <li><strong>Strategy before execution.</strong> — We don't start building until the thinking is done.</li>
+              <li><strong>Transparent, structured pricing.</strong> — No hourly billing surprises. Packages are fixed.
+              </li>
+              <li><strong>Full-stack delivery.</strong> — Design, development, marketing — one team, one relationship.
+              </li>
+              <li><strong>Built for growth, not busywork.</strong> — We focus on work that moves the needle.</li>
+            </ul>
+            <strong>Right panel</strong> (dark elevated surface, copper left border): "We're not a freelancer
+            marketplace. We're not a volume agency. We're a <em>focused creative studio</em> that builds things
+            properly."
+            <div class="sc-note">The differentiators address the three fears every business owner has: "Will they waste
+              my money?" (strategy first), "Will costs spiral?" (transparent pricing), "Will I manage multiple vendors?"
+              (full-stack).</div>
+            <div class="connects">→ Connects to: Packages Preview — from "here's why we're different" to "here's what it
+              costs."</div>
+          </div>
         </div>
-      </div>
 
-      <div class="sec-card reveal">
-        <div><div class="sc-intent">Section 6</div><div class="sc-name">CTA</div></div>
-        <div class="sc-content">"Pick a package or get a custom proposal."</div>
+        <!-- Packages Preview -->
+        <div class="sec-card reveal">
+          <div>
+            <div class="sc-intent">Section 5</div>
+            <div class="sc-name">Packages Preview</div>
+            <div class="sc-belief">"Their pricing is real and there's a tier for me."</div>
+          </div>
+          <div class="sc-content">
+            A teaser — four tier cards showing name, starting price, and one-liner. Not the full breakdown.
+            <div class="tiers-row">
+              <div class="tier-mini">
+                <div class="tm-price">£3k</div>
+                <div class="tm-name">Starter</div>
+              </div>
+              <div class="tier-mini">
+                <div class="tm-price">£5k</div>
+                <div class="tm-name">Growth</div>
+              </div>
+              <div class="tier-mini featured">
+                <div class="tm-price">£10k</div>
+                <div class="tm-name">Premium</div>
+              </div>
+              <div class="tier-mini">
+                <div class="tm-price">£20k</div>
+                <div class="tm-name">Enterprise</div>
+              </div>
+            </div>
+            Two links below: "See all packages →" and "Not sure? Get a recommendation →"
+            <div class="sc-note">The Home page's job is to get clicks to deeper pages. If you show the full pricing
+              table here, there's no reason to visit the Packages page. The preview answers "is this in my range?" and
+              creates curiosity for "what's included?"</div>
+            <div class="connects">→ Connects to: Packages page and Final CTA below.</div>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="sec-card reveal">
+          <div>
+            <div class="sc-intent">Section 6</div>
+            <div class="sc-name">Final CTA</div>
+            <div class="sc-belief">"I can reach out without committing — this feels approachable."</div>
+          </div>
+          <div class="sc-content">
+            <strong>Heading:</strong> "Ready to build something <em>that actually works?</em>"<br>
+            <strong>Subtext:</strong> "Tell us what you need. We'll tell you exactly what it costs and how we'd do
+            it."<br><br>
+            Two buttons: "Get a Proposal" (copper) · "Book a Call" (outlined + phone icon)<br>
+            Below: "No commitment. No sales pressure. Just a clear conversation."<br>
+            Trust bar repeated from hero — reinforces positioning at the moment of decision.
+          </div>
+        </div>
       </div>
     </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- PAGE 2: SERVICES -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section class="s">
+    <div class="page-detail">
+      <div class="page-header reveal">
+        <div class="page-num-large">02</div>
+        <div class="page-name">Services</div>
+      </div>
+      <p class="page-intent reveal">The depth page. Answers "can you do what I specifically need?" Arc: <strong
+          style="color:var(--cream-bright)">Orient → Deep Dive × 3 → Process → Convert.</strong></p>
+
+      <div class="section-cards">
+        <div class="sec-card reveal">
+          <div>
+            <div class="sc-intent">Section 1</div>
+            <div class="sc-name">Hero</div>
+          </div>
+          <div class="sc-content">
+            Shorter hero — 60–70vh, centered. Heading: <strong>"Design · Build · Scale"</strong> — each word on its own
+            line, in its pillar color (cream, copper, emerald). Large, bold, immediate orientation.<br>
+            Subtext: "Three disciplines. One infrastructure. Every project follows this logic — designed with intention,
+            built from the ground up, scaled with precision."
+          </div>
+        </div>
+
+        <div class="sec-card reveal">
+          <div>
+            <div class="sc-intent">Section 2</div>
+            <div class="sc-name">DESIGN Pillar</div>
+            <div class="sc-belief">"They craft perception — brand, visual language, and the words that make it land."
+            </div>
+          </div>
+          <div class="sc-content">
+            Cream accent label. Heading: "We Shape the Perception." Three service cards side by side:
+            <ul class="sc-list">
+              <li><strong>Brand Strategy &amp; Identity</strong> — positioning, brand voice, visual identity system,
+                logo, style guide, messaging framework</li>
+              <li><strong>Graphic &amp; Presentation Design</strong> — social media assets, pitch decks, investor
+                presentations, advertising creatives, print materials</li>
+              <li><strong>UI/UX Design &amp; Copywriting</strong> — interface design, user flows, wireframes, landing
+                page copy, tone of voice</li>
+            </ul>
+            Each card has an icon, description, and capabilities list showing specific deliverables.
+          </div>
+        </div>
+
+        <div class="sec-card reveal">
+          <div>
+            <div class="sc-intent">Section 3</div>
+            <div class="sc-name">BUILD Pillar</div>
+            <div class="sc-belief">"They engineer the digital infrastructure — properly, not templated."</div>
+          </div>
+          <div class="sc-content">
+            Copper accent label. Heading: "We Engineer the Foundation." Three service cards:
+            <ul class="sc-list">
+              <li><strong>Custom Web Development</strong> — custom design &amp; dev, CMS integration, performance
+                optimisation, mobile-first responsive, Core Web Vitals</li>
+              <li><strong>E-Commerce &amp; Platform Solutions</strong> — online stores, payment gateways, product
+                catalogues, checkout optimisation, platform migration</li>
+              <li><strong>Technical SEO &amp; Integration</strong> — technical SEO audit, schema markup, third-party
+                integrations, analytics &amp; tracking setup, site speed</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="sec-card reveal">
+          <div>
+            <div class="sc-intent">Section 4</div>
+            <div class="sc-name">SCALE Pillar</div>
+            <div class="sc-belief">"Marketing here is strategy-led, not just ads."</div>
+          </div>
+          <div class="sc-content">
+            Emerald accent label. Heading: "We Amplify What We Build." Three service cards:<br><br>
+            <ul class="sc-list">
+              <li><strong>Search Engine Marketing</strong> — SEO strategy &amp; execution, Google Ads, keyword research,
+                content planning, technical audits, ranking reports</li>
+              <li><strong>Social Media &amp; Paid Campaigns</strong> — Meta Ads, LinkedIn, social management,
+                retargeting, A/B testing, creative iteration</li>
+              <li><strong>Conversion &amp; Analytics</strong> — CRO, analytics setup, funnel design, landing page
+                testing, monthly performance reviews</li>
+            </ul>
+            <strong>Below the 3 cards:</strong> Full Campaign Delivery spotlight card — a wide single card with the
+            5-node campaign flow diagram (Strategy &amp; Brief → Creative &amp; Assets → Launch &amp; Activate →
+            Optimise → Report &amp; Refine). This card is the flagship offer — campaigns as the full-play culmination of
+            Design + Build + Scale working together.
+            <div class="sc-note">The Campaign Delivery card sits below Scale's 3-card grid before the Process section —
+              it breaks the grid rhythm intentionally. It's the only full-width card on the page. That visual weight
+              signals Premium.</div>
+          </div>
+        </div>
+
+        <div class="sec-card reveal">
+          <div>
+            <div class="sc-intent">Section 5</div>
+            <div class="sc-name">How We Work</div>
+            <div class="sc-belief">"The process is clear, repeatable, and designed for client clarity."</div>
+          </div>
+          <div class="sc-content">
+            4-step horizontal timeline (desktop), vertical on mobile:
+            <div class="process-steps">
+              <div class="p-step">
+                <div class="ps-num">01</div>
+                <div class="ps-name">Discovery</div>
+                <div class="ps-desc">We listen. Map the landscape before touching a pixel.</div>
+              </div>
+              <div class="p-step">
+                <div class="ps-num">02</div>
+                <div class="ps-name">Strategy</div>
+                <div class="ps-desc">Define approach, channels, timeline, budget. You approve first.</div>
+              </div>
+              <div class="p-step">
+                <div class="ps-num">03</div>
+                <div class="ps-name">Execution</div>
+                <div class="ps-desc">Build, launch, manage. Regular check-ins. Full visibility.</div>
+              </div>
+              <div class="p-step">
+                <div class="ps-num">04</div>
+                <div class="ps-name">Results</div>
+                <div class="ps-desc">Measure, report, refine. Clear picture of what was achieved.</div>
+              </div>
+            </div>
+            <div class="sc-note">Business owners burned by agencies love seeing a process. It says "we won't disappear
+              after taking your money" without saying it.</div>
+          </div>
+        </div>
+
+        <div class="sec-card reveal">
+          <div>
+            <div class="sc-intent">Section 6</div>
+            <div class="sc-name">CTA</div>
+          </div>
+          <div class="sc-content">"Know what you need? Let's scope it." — Get a Proposal (copper) · View Packages
+            (outlined).</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- PAGE 3: PACKAGES -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section class="s">
+    <div class="page-detail">
+      <div class="page-header reveal">
+        <div class="page-num-large">03</div>
+        <div class="page-name">Packages</div>
+      </div>
+      <p class="page-intent reveal">The decision page. Where browsing becomes buying. Arc: <strong
+          style="color:var(--cream-bright)">Frame → Compare → Discover → Reassure → Convert.</strong></p>
+
+      <div class="section-cards">
+        <div class="sec-card reveal">
+          <div>
+            <div class="sc-intent">Section 1</div>
+            <div class="sc-name">Hero</div>
+          </div>
+          <div class="sc-content">
+            "Transparent Pricing. Structured Delivery." — "Every package is scoped, priced, and delivered with full
+            clarity. No hourly surprises. No scope creep."
+          </div>
+        </div>
+
+        <div class="sec-card reveal">
+          <div>
+            <div class="sc-intent">Section 2</div>
+            <div class="sc-name">Tier Cards</div>
+            <div class="sc-belief">"There's a clear tier for my business size and need."</div>
+          </div>
+          <div class="sc-content">
+            4 detailed cards — more detail than the Home preview. Each card includes tier name, price, target audience,
+            4–5 bullet points of what's included, and a CTA button.
+            <ul class="sc-list">
+              <li><strong>Starter £3,000</strong> — small businesses, new brands. One core service. Foundation-level
+                delivery.</li>
+              <li><strong>Growth £5,000</strong> — businesses ready to scale. Two combined services. Integrated
+                delivery.</li>
+              <li><strong>Premium £10,000</strong> — established businesses. Full-stack: design + development +
+                marketing. Highlighted as "Most Popular."</li>
+              <li><strong>Enterprise £20,000</strong> — large projects. Bespoke scope. Dedicated team. Ongoing
+                management.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="sec-card reveal">
+          <div>
+            <div class="sc-intent">Section 3</div>
+            <div class="sc-name">Interactive Configurator</div>
+            <div class="sc-belief">"They'll recommend the right package for me in 60 seconds."</div>
+          </div>
+          <div class="sc-content">
+            5-step quiz in a dark panel with progress bar:
+            <div class="config-mini">
+              <div class="cm-q">What do you need?</div>
+              <div class="cm-opt">A new website</div>
+              <div class="cm-opt sel">Marketing & advertising</div>
+              <div class="cm-opt">Creative / design work</div>
+              <div class="cm-opt">A full campaign</div>
+            </div>
+            <br>Steps: What do you need → Business stage → Timeline → Budget range → Specific services
+            (multi-select).<br><br>
+            <strong>Result:</strong> recommended tier with reasoning, what's included, and "Get a Proposal for This
+            Package →" CTA that links to Contact with the package pre-selected.
+            <div class="sc-note">The configurator does three things simultaneously — helps the visitor, qualifies the
+              lead, and demonstrates BA Digi's UX capability. "If they built this quiz this well, imagine what they'd
+              build for my website."</div>
+          </div>
+        </div>
+
+        <div class="sec-card reveal">
+          <div>
+            <div class="sc-intent">Section 4</div>
+            <div class="sc-name">What's Always Included</div>
+          </div>
+          <div class="sc-content">
+            4 cards: Dedicated point of contact · Clear project timeline · Full documentation · Post-delivery support.
+            Standards that never change regardless of tier.
+          </div>
+        </div>
+
+        <div class="sec-card reveal">
+          <div>
+            <div class="sc-intent">Section 5</div>
+            <div class="sc-name">FAQ</div>
+          </div>
+          <div class="sc-content">
+            Accordion — 5–6 questions: Can I customise? What if my needs don't fit a tier? Typical timelines? Payment
+            terms? Post-delivery support? Can I add services later?
+          </div>
+        </div>
+
+        <div class="sec-card reveal">
+          <div>
+            <div class="sc-intent">Section 6</div>
+            <div class="sc-name">CTA</div>
+          </div>
+          <div class="sc-content">"Pick a package or get a custom proposal."</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- PAGE 4: CONTACT -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section class="s">
+    <div class="page-detail">
+      <div class="page-header reveal">
+        <div class="page-num-large">04</div>
+        <div class="page-name">Contact</div>
+      </div>
+      <p class="page-intent reveal">The simplest page. The selling is done. This page just needs to <strong
+          style="color:var(--cream-bright)">not get in the way.</strong></p>
+
+      <div class="section-cards">
+        <div class="sec-card reveal">
+          <div>
+            <div class="sc-intent">Section 1</div>
+            <div class="sc-name">Hero</div>
+          </div>
+          <div class="sc-content">
+            "Let's Talk About Your Project." — "Whether you're ready to start or just exploring — we're here."
+          </div>
+        </div>
+
+        <div class="sec-card reveal">
+          <div>
+            <div class="sc-intent">Section 2</div>
+            <div class="sc-name">Contact Layout</div>
+          </div>
+          <div class="sc-content">
+            <strong>Two-column layout (desktop), stacked (mobile):</strong><br><br>
+            <strong>Left — Contact info:</strong> Email (clickable), Phone (tap-to-call), WhatsApp (prominent green
+            button), Location/timezone.<br><br>
+            <strong>Right — Quick form:</strong> Name, Email, What do you need? (dropdown), Budget range (dropdown),
+            Brief message, Submit button (copper).<br><br>
+            If the visitor came through the configurator, the "What do you need?" and "Budget range" are pre-filled from
+            their quiz answers.
+          </div>
+        </div>
+
+        <div class="sec-card reveal">
+          <div>
+            <div class="sc-intent">Section 3</div>
+            <div class="sc-name">Closing Note</div>
+          </div>
+          <div class="sc-content">
+            "Prefer to talk? Call us directly or message on WhatsApp. No contact forms required." — Multiple paths, zero
+            friction.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ═══ HOW PAGES CONNECT ═══ -->
+  <section class="s" id="connections">
+    <div class="s-label reveal">The Visitor Journey</div>
+    <div class="s-title reveal">How Every Page <em>Connects.</em></div>
+    <p class="s-sub reveal">The site is a funnel. Every page has a CTA that moves the visitor forward. No dead ends. No
+      orphan pages.</p>
+    <div class="funnel">
+      <div class="funnel-step reveal">
+        <div class="f-page">Home</div>
+        <h4>Creates Interest</h4>
+        <p>Previews everything → links to Services (depth), Packages (pricing), or Contact (ready buyer).</p>
+      </div>
+      <div class="funnel-step reveal">
+        <div class="f-page">Services</div>
+        <h4>Builds Confidence</h4>
+        <p>Detailed capabilities → links to Packages ("now you know what we do, here's what it costs") or Contact.</p>
+      </div>
+      <div class="funnel-step reveal">
+        <div class="f-page">Packages</div>
+        <h4>Enables Decision</h4>
+        <p>Clear tiers + configurator → feeds into Contact with package pre-selected and context pre-filled.</p>
+      </div>
+      <div class="funnel-step reveal">
+        <div class="f-page">Contact</div>
+        <h4>Converts</h4>
+        <p>Multiple paths — email, phone, WhatsApp, form. Warm leads from configurator. Zero friction.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CLOSING ═══ -->
+  <div class="closing">
+    <div class="s-label reveal">Next Step</div>
+    <h2 class="reveal">Let's Build <em>BA Digi.</em></h2>
+    <p class="closing-sub reveal">This blueprint is the foundation. Every page, every section, every interaction mapped.
+      What follows is building it — page by page, pixel by pixel.</p>
+    <a href="#" class="closing-cta reveal">
+      Let's Start
+      <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+        <path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+      </svg>
+    </a>
   </div>
-</section>
 
-<div class="section-divider"></div>
+  <footer>
+    <span>BA Digi Marketing — Complete Site Blueprint</span>
+    <span>Prepared by Newman — March 2026</span>
+  </footer>
 
-<!-- ═══════════════════════════════════════════ -->
-<!-- PAGE 4: CONTACT -->
-<!-- ═══════════════════════════════════════════ -->
-<section class="s">
-  <div class="page-detail">
-    <div class="page-header reveal"><div class="page-num-large">04</div><div class="page-name">Contact</div></div>
-    <p class="page-intent reveal">The simplest page. The selling is done. This page just needs to <strong style="color:var(--cream-bright)">not get in the way.</strong></p>
-
-    <div class="section-cards">
-      <div class="sec-card reveal">
-        <div><div class="sc-intent">Section 1</div><div class="sc-name">Hero</div></div>
-        <div class="sc-content">
-          "Let's Talk About Your Project." — "Whether you're ready to start or just exploring — we're here."
-        </div>
-      </div>
-
-      <div class="sec-card reveal">
-        <div><div class="sc-intent">Section 2</div><div class="sc-name">Contact Layout</div></div>
-        <div class="sc-content">
-          <strong>Two-column layout (desktop), stacked (mobile):</strong><br><br>
-          <strong>Left — Contact info:</strong> Email (clickable), Phone (tap-to-call), WhatsApp (prominent green button), Location/timezone.<br><br>
-          <strong>Right — Quick form:</strong> Name, Email, What do you need? (dropdown), Budget range (dropdown), Brief message, Submit button (copper).<br><br>
-          If the visitor came through the configurator, the "What do you need?" and "Budget range" are pre-filled from their quiz answers.
-        </div>
-      </div>
-
-      <div class="sec-card reveal">
-        <div><div class="sc-intent">Section 3</div><div class="sc-name">Closing Note</div></div>
-        <div class="sc-content">
-          "Prefer to talk? Call us directly or message on WhatsApp. No contact forms required." — Multiple paths, zero friction.
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="section-divider"></div>
-
-<!-- ═══ HOW PAGES CONNECT ═══ -->
-<section class="s" id="connections">
-  <div class="s-label reveal">The Visitor Journey</div>
-  <div class="s-title reveal">How Every Page <em>Connects.</em></div>
-  <p class="s-sub reveal">The site is a funnel. Every page has a CTA that moves the visitor forward. No dead ends. No orphan pages.</p>
-  <div class="funnel">
-    <div class="funnel-step reveal">
-      <div class="f-page">Home</div>
-      <h4>Creates Interest</h4>
-      <p>Previews everything → links to Services (depth), Packages (pricing), or Contact (ready buyer).</p>
-    </div>
-    <div class="funnel-step reveal">
-      <div class="f-page">Services</div>
-      <h4>Builds Confidence</h4>
-      <p>Detailed capabilities → links to Packages ("now you know what we do, here's what it costs") or Contact.</p>
-    </div>
-    <div class="funnel-step reveal">
-      <div class="f-page">Packages</div>
-      <h4>Enables Decision</h4>
-      <p>Clear tiers + configurator → feeds into Contact with package pre-selected and context pre-filled.</p>
-    </div>
-    <div class="funnel-step reveal">
-      <div class="f-page">Contact</div>
-      <h4>Converts</h4>
-      <p>Multiple paths — email, phone, WhatsApp, form. Warm leads from configurator. Zero friction.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ CLOSING ═══ -->
-<div class="closing">
-  <div class="s-label reveal">Next Step</div>
-  <h2 class="reveal">Let's Build <em>BA Digi.</em></h2>
-  <p class="closing-sub reveal">This blueprint is the foundation. Every page, every section, every interaction mapped. What follows is building it — page by page, pixel by pixel.</p>
-  <a href="#" class="closing-cta reveal">
-    Let's Start
-    <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-  </a>
-</div>
-
-<footer>
-  <span>BA Digi Marketing — Complete Site Blueprint</span>
-  <span>Prepared by Newman — March 2026</span>
-</footer>
-
-<script>
-  window.addEventListener('scroll',()=>{
-    const p=window.scrollY/(document.body.scrollHeight-window.innerHeight)*100;
-    document.getElementById('progress').style.width=p+'%';
-  });
-  const reveals=document.querySelectorAll('.reveal');
-  const obs=new IntersectionObserver(entries=>{
-    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}});
-  },{threshold:0.08});
-  reveals.forEach(el=>obs.observe(el));
-</script>
+  <script>
+    window.addEventListener('scroll', () => {
+      const p = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
+      document.getElementById('progress').style.width = p + '%';
+    });
+    const reveals = document.querySelectorAll('.reveal');
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target) } });
+    }, { threshold: 0.08 });
+    reveals.forEach(el => obs.observe(el));
+  </script>
 
 </body>
+
 </html>

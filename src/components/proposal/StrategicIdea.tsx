@@ -9,7 +9,7 @@ export default function StrategicIdea() {
                 If their own site looks this good, <em>imagine what they'd build for you.</em>
             </ScrollReveal>
             <ScrollReveal className="section-sub">
-                Most marketing agency websites claim creativity but look identical. BA Digi's site silently demonstrates capability through its own execution. Every pixel is proof of craft. Seven services grouped into three pillars that tell one story: <strong style={{ color: 'var(--cream-bright)' }}>Build it. Grow it. Launch it.</strong>
+                Most marketing agency websites claim creativity but look identical. BA Digi's site silently demonstrates capability through its own execution. Every pixel is proof of craft. Nine services grouped into three pillars that tell one story: <strong style={{ color: 'var(--cream-bright)' }}>Design it. Build it. Scale it.</strong>
             </ScrollReveal>
         </section>
     );
