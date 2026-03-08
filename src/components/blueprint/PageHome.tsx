@@ -68,7 +68,7 @@ export default function PageHome() {
                         <div className="sc-content">
                             A staggered grid of 4–6 work preview cards. Each card shows a type label ("Website", "Campaign", "Social", "Presentation") inside a dark styled frame with CSS texture. Not fake screenshots — the visual design of the cards themselves demonstrates capability.<br /><br />
                             <strong>Closing line below:</strong> "Every project is a proof of concept. <em>For what we'd build for you.</em>"<br /><br />
-                            <strong>Small note:</strong> "Portfolio pieces added with your approval." — tells Daniel we need his work samples, without breaking the visitor's experience.
+                            {/* <strong>Small note:</strong> "Portfolio pieces added with your approval." — tells Daniel we need his work samples, without breaking the visitor's experience. */}
                             <div className="sc-note">The site itself IS the proof. Placeholder frames look intentional — like a gallery waiting for work. Real pieces get added as Daniel completes projects. The section is architecturally ready.</div>
                             <div className="connects">→ Connects to: Why BA Digi section — from "look at what we do" to "here's why we're different."</div>
                         </div>
